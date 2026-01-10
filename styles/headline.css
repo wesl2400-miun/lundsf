@@ -1,0 +1,13 @@
+/** Gäller h1-rubriker som använder denna stil **/
+.headline {
+  width: var(--full-vw);
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 0;
+  background-color: var(--brand-surface-variant);
+  font-size: 24px;
+}

@@ -1,0 +1,23 @@
+/** Denna behållare ska se till att knappar fortsätter att vara synliga även om innehållet scrollas. **/
+#action-bar {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+  box-sizing: border-box;
+  background-color: var(--brand-background);
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--brand-accent);
+}
+
+#action-bar .prim-btn, 
+#action-bar .prim-var-btn {
+  width: 45%;
+}
+

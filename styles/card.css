@@ -1,0 +1,35 @@
+/** Gäller kort som visas i huvudinnehållet **/
+.card {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--brand-surface);
+  border-radius: 10px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  margin: 0.5rem 0;
+}
+
+.card h2, 
+.card h3, 
+.card p {
+  width: inherit;
+  padding: 0.3rem 0rem;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.card h2 {
+  font-size: 20px;
+}
+
+.card h3 {
+  font-size: 18px;
+}
+
+.card p {
+  margin-bottom: 0.5rem;
+}
+

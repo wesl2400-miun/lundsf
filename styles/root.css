@@ -1,0 +1,63 @@
+/** Definierar återanvändbara värden och teckensnitt**/
+
+:root {
+  /*** Färger**/
+  --brand-primary: #1F2C38;
+  --brand-primary-variant: #304455;
+  --brand-on-primary: #FFFFFF;
+  --brand-on-primary-variant: #FFFFFF;
+  --brand-accent: #1F2C38;
+  --brand-accent-variant: #405B72;
+  --brand-accent-secondary: #1E573A;
+  --brand-background: #FFFFFF;
+  --brand-surface: #C0E6DF;
+  --brand-surface-variant: #C0C3E6;
+  --brand-on-surface: #1F1F1F;
+  --brand-on-surface-variant: #1F1F1F;
+  --brand-secondary: #256161;
+  --brand-secondary-variant: #112C2C;
+  --brand-on-secondary: #FFFFFF;
+  --brand-on-secondary-variant: #FFFFFF;
+  --brand-navbar-primary: #484B84;
+  --brand-navbar-variant: #323258;
+  --brand-navbar-accent: #634785;
+  --brand-on-navbar: #FFFFFF;
+  --brand-on-navbar-variant: #FFFFFF;
+  --brand-error: #721D1D;
+
+  /** Dimensioner **/
+  --full-vw: 100vw;
+  --main-w-mobile: 90%;
+
+  /** Teckensnitt **/
+  font-family: "Encode Sans Semi Expanded", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+}
+
+/** Gör body taggen responsiv **/
+body {
+  width: var(--full-vw);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  margin-bottom: 40%;
+  padding: 0;
+  background-color: var(--brand-background);
+}
+
+/** Gör header taggen responsiv **/
+header {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}

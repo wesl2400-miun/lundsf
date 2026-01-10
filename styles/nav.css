@@ -1,0 +1,100 @@
+/** Gäller menyn, meny-knappen och navigeringsrutterna **/
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 0;
+  background-color: var(--brand-navbar-primary);
+}
+
+/** Hopfällbar meny **/
+#menu {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-right: 1.5rem;
+}
+
+/** Meny-knapp **/
+#menu-btn {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+/** Se till att meny-knappen kan kommas åt via assisterande teknik **/
+#menu-btn:focus {
+  outline: 4px double var(--brand-on-navbar);
+  outline-offset: 3px;
+}
+
+#menu-btn img {
+  height: 40px;
+}
+
+/** Navigeringsrutter - Visas dynamiskt med JavaScript**/
+#routes {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#routes li {
+  width: inherit;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#routes li:last-child {
+  border-bottom: 2px solid var(--brand-on-navbar);
+}
+
+#routes li a, 
+#routes li a:link, 
+#routes li a:active {
+  text-decoration: none;
+  width: inherit;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-top: 2px solid var(--brand-on-navbar);
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--brand-on-navbar);
+}
+
+/** Gäller den aktuella rutten **/
+#routes .route--selected {
+  background-color: var(--brand-navbar-variant);
+}
+
+#routes li a:hover {
+  background-color: var(--brand-navbar-accent);
+}
+
+/** Se till att rutterna kan kommas åt via assisterande teknik **/
+#routes li a:focus {
+  outline: 3px double var(--brand-on-navbar);
+  outline-offset: -8px;
+}

@@ -1,0 +1,53 @@
+/** Applicerar stilen på kalender-knapparna **/
+.calendar-btns {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  box-sizing: border-box;
+}
+
+.calendar-btn {
+  appearance: none;
+  width: 80px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--brand-secondary);
+  color: var(--brand-on-secondary);
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 20px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.calendar-btn[aria-label='checked'] {
+  background-color: var(--brand-secondary-variant);
+}
+
+/** Byt stilen på knappen beronde på dess nuvarande tillstånd **/
+.calendar-btn:focus,
+.calendar-btn--selected:focus {
+  outline: 3px double var(--brand-on-surface);
+  outline-offset: 2px;
+}
+
+.calendar-btn:hover,
+.calendar-btn--selected:hover {
+  background-color: var(--brand-accent-secondary);
+}
+
+.calendar-btn:active {
+  background-color: var(--brand-secondary);
+}
+
+.calendar-btn--selected:active {
+  background-color: var(--brand-secondary-variant);
+}
+

@@ -1,0 +1,46 @@
+/** Aplicerar stilen på dialogrutor **/
+#modal {
+  width: var(--full-vw);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: black;
+  opacity: 70%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#dialog {
+  width: 280px;
+  height: fit-content;
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--brand-background);
+  box-sizing: border-box;
+}
+
+#dialog p {
+  margin: 1rem;
+  text-align: center;
+}
+
+#dialog .headline {
+  width: 100%;
+}
+
+#dialog .prim-btn, 
+#dialog .prim-var-btn {
+  width: 90%;
+}

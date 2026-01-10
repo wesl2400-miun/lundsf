@@ -1,0 +1,13 @@
+/** Applicera stilen på huvudinnehållet **/
+#main {
+  width: var(--main-w-mobile);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--brand-on-surface);
+  box-sizing: border-box;
+}
+
+
+

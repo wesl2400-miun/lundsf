@@ -1,0 +1,41 @@
+/** Applicerar stilen på inmatnings- och kryssrutor **/
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form input {
+  width: inherit;
+  height: 50px;
+  box-sizing: border-box;
+  font-size: 18px;
+  padding: 0.3rem;
+  border-radius: 5px;
+  border: 2px solid var(--brand-accent);
+  color: var(--brand-on-surface);
+}
+
+/** Se till att inmatnings- och kryssrutorna kan kommas åt via assisterande teknik **/
+.form input:focus {
+  outline: 3px double var(--brand-on-surface);
+  outline-offset: 2px;
+}
+
+.checker {
+  width: inherit;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.form .checkbox {
+  width: 25px;
+  height: 25px;
+  margin-right: 0.5rem;
+}

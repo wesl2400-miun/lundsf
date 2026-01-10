@@ -1,0 +1,33 @@
+/** Applicera stilen på alla version 1 primära knappar och knapplänkar (sådana som utlöser bekräftande aktioner) **/
+.prim-btn {
+  all: unset;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 22px;
+  font-weight: 500;
+  border: none;
+  background-color: var(--brand-primary);
+  color: var(--brand-on-primary);
+  border-radius: 5px;
+  margin: 0.5rem 0;
+}
+
+/** Se till att knapparna kan kommas åt via assisterande teknik **/
+.prim-btn:focus {
+  outline: 3px double var(--brand-on-surface);
+  outline-offset: 2px;
+}
+
+/** Applicera hover-effekten **/
+.prim-btn:hover {
+  background-color: var(--brand-accent-variant);
+}
+
+/** Byt stilen när knappen pressas **/
+.prim-btn:active {
+  background-color: var(--brand-primary);
+}
