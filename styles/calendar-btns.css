@@ -25,9 +25,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  cursor: pointer;
 }
 
-.calendar-btn[aria-label='checked'] {
+.calendar-btn[aria-checked='true'] {
   background-color: var(--brand-secondary-variant);
 }
 

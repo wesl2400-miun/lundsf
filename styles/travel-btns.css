@@ -16,6 +16,7 @@
   border: none;
   font-size: 20px;
   font-weight: 500;
+  cursor: pointer;
 }
 
 /** Byt stilen på knappen beroende på dess nuvarande tillstånd**/

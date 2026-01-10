@@ -14,6 +14,7 @@
   color: var(--brand-on-primary);
   border-radius: 5px;
   margin: 0.5rem 0;
+  cursor: pointer;
 }
 
 /** Se till att knapparna kan kommas åt via assisterande teknik **/
