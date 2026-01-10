@@ -10,7 +10,7 @@ const newTag = (type, css, text, parent) => {
   const tag = document.createElement(type);
   if(css) tag.classList.add(css);
   if(text) tag.textContent = text;
-  parent.appendChild(tag);
+  if(parent) parent.appendChild(tag);
   return tag;
 }
 
@@ -19,6 +19,23 @@ class InfoCard {
     this._root = newTag('section', 'card', null, vHolder);
     newTag('h2', null, title, this._root);
     newTag('p', null, text, this._root);
+  }
+}
+
+class FieldCard {
+  constructor(vHolder, title) {
+    this._root = newTag('section', 'card', null, vHolder);
+    newTag('h2', null, title, this._root);
+  }
+
+  addField = (title) => {
+    const form = newTag('form', 'form', null, this._root);
+    const label = newTag('label', 'label', title, form);
+    label.setAttribute('for', title);
+    const field = newTag('input', null, null, form);
+    field.id = title;
+    field.type = 'text;'
+    field.placeHolder = title;
   }
 }
 
@@ -67,13 +84,38 @@ class TravView {
   } 
 
   _wireActBar = (vHolder, actBar) => {
-    const travBtn = newTag('button', 'prim-btn', 'Boka ny resa', actBar);
+    const travBtn = newTag('button', 'prim-btn', 'BOKA NY RESA', actBar);
     travBtn.style.width = '90%';
     travBtn.addEventListener('click', () => {
-      new YearView(vHolder, actBar);
+      new DestView(vHolder, actBar);
     });
   }
 }
+
+class DestView {
+  constructor(vHolder, actBar) {
+    vHolder.innerHTML = '';
+    actBar.innerHTML = '';
+    const card = new FieldCard(vHolder, 'Välj destination');
+    card.addField('Gatuadress');
+    card.addField('Postnummer');
+    card.addField('Postort');
+    this._wireActBar(vHolder, actBar);
+  } 
+
+  _wireActBar = (vHolder, actBar) => {
+    const acceptBtn = newTag('button', 'prim-btn', 'NÄSTA', actBar);
+    acceptBtn.addEventListener('click', () => {
+      new YearView(vHolder, actBar)
+    });
+
+    const cancBtn = newTag('button', 'prim-var-btn', 'AVBRYT', actBar);
+    cancBtn.addEventListener('click', () => {
+      new TravView(vHolder, actBar);
+    });
+  }
+}
+
 
 class YearView {
   constructor(vHolder, actBar) {
@@ -87,14 +129,14 @@ class YearView {
   } 
 
   _wireActBar = (vHolder, actBar) => {
-    const acceptBtn = newTag('button', 'prim-btn', 'Nästa', actBar);
+    const acceptBtn = newTag('button', 'prim-btn', 'NÄSTA', actBar);
     acceptBtn.addEventListener('click', () => {
       new MonthView(vHolder, actBar);
     });
 
-    const cancBtn = newTag('button', 'prim-var-btn', 'Avbryt', actBar);
+    const cancBtn = newTag('button', 'prim-var-btn', 'TILLBAKA', actBar);
     cancBtn.addEventListener('click', () => {
-      new TravView(vHolder, actBar);
+      new DestView(vHolder, actBar);
     });
   }
 }
@@ -111,12 +153,12 @@ class MonthView {
   } 
 
   _wireActBar = (vHolder, actBar) => {
-    const acceptBtn = newTag('button', 'prim-btn', 'Nästa', actBar);
+    const acceptBtn = newTag('button', 'prim-btn', 'NÄSTA', actBar);
     acceptBtn.addEventListener('click', () => {
       new DayView(vHolder, actBar);
     });
 
-    const cancBtn = newTag('button', 'prim-var-btn', 'Tillbaka', actBar);
+    const cancBtn = newTag('button', 'prim-var-btn', 'TILLBAKA', actBar);
     cancBtn.addEventListener('click', () => {
       new YearView(vHolder, actBar);
     });
@@ -133,12 +175,12 @@ class DayView {
   } 
 
   _wireActBar = (vHolder, actBar) => {
-    const acceptBtn = newTag('button', 'prim-btn', 'Nästa', actBar);
+    const acceptBtn = newTag('button', 'prim-btn', 'NÄSTA', actBar);
     acceptBtn.addEventListener('click', () => {
       new HourView(vHolder, actBar);
     });
 
-    const cancBtn = newTag('button', 'prim-var-btn', 'Tillbaka', actBar);
+    const cancBtn = newTag('button', 'prim-var-btn', 'TILLBAKA', actBar);
     cancBtn.addEventListener('click', () => {
       new MonthView(vHolder, actBar);
     });
@@ -149,7 +191,7 @@ class HourView {
   constructor(vHolder, actBar) {
     vHolder.innerHTML = '';
     actBar.innerHTML = '';
-    new CalCard(vHolder, 'Välj dag', 'Nedan finns tillgängliga tider.',
+    new CalCard(vHolder, 'Välj tid', 'Nedan finns tillgängliga tider.',
       ['9.00', '9.30', '10.00', '12.30', '13.00', '13.30', '14.00', 
         '14.30', '16.00', '17.00', '17.30']
     );
@@ -157,14 +199,92 @@ class HourView {
   } 
 
   _wireActBar = (vHolder, actBar) => {
-    const acceptBtn = newTag('button', 'prim-btn', 'Nästa', actBar);
+    const acceptBtn = newTag('button', 'prim-btn', 'NÄSTA', actBar);
+    acceptBtn.addEventListener('click', () => {
+      new ExtrasView(vHolder, actBar);
+    });
+
+    const cancBtn = newTag('button', 'prim-var-btn', 'TILLBAKA', actBar);
+    cancBtn.addEventListener('click', () => {
+      new DayView(vHolder, actBar);
+    });
+  }
+}
+
+class ExtrasView {
+  constructor(vHolder, actBar) {
+    vHolder.innerHTML = '';
+    actBar.innerHTML = '';
+    this._root = newTag('section', 'card', null, vHolder);
+    this._wireActBar(vHolder, actBar);
+    this._addOpts(
+      'Är resa återkommande?', 
+      ['Nej', 'Varje vecka', 'Varannan vecka', 'Varje månad'], 
+      'radio',
+      'tripOpts'
+    );
+    this._addOpts(
+      'Är resa återkommande?', 
+      ['Jag har rullstol', 'Jag har ledarhund'], 
+      'checkbox',
+      'extraOpts'
+    );
+ 
+  }
+
+  _addOpts = (title, opts, type, group) => {
+    newTag('h2', null, title, this._root);
+    const form = newTag('form', 'travel-btns', null, this._root);
+    opts.forEach(opt => {
+      const travOpt = newTag('div', 'travel-opt', null, form);
+      const btn = newTag('input', 'travel-btn', null, travOpt);
+      btn.type = type;
+      btn.name = group;
+      btn.id = opt;
+      btn.value = opt; 
+      const label = newTag('label', null, opt, travOpt); 
+      label.setAttribute('for', opt);
+      btn.addEventListener('change', () => {
+        if(btn.checked) console.log(btn.id)
+      })
+    });
+  }
+
+  _wireActBar = (vHolder, actBar) => {
+    const acceptBtn = newTag('button', 'prim-btn', 'NÄSTA', actBar);
+    acceptBtn.addEventListener('click', () => {
+      new SpecsView(vHolder, actBar);
+    });
+
+    const cancBtn = newTag('button', 'prim-var-btn', 'TILLBAKA', actBar);
+    cancBtn.addEventListener('click', () => {
+      new HourView(vHolder, actBar);
+    });
+  }
+}
+
+class SpecsView {
+  constructor(vHolder, actBar) {
+    vHolder.innerHTML = '';
+    actBar.innerHTML = '';
+    const card = new FieldCard(vHolder, 'Detaljer');
+    card.addField('Förnamn');
+    card.addField('Efternamn');
+    card.addField('Gatuadress');
+    card.addField('Postnummer');
+    card.addField('Postort');
+    this._wireActBar(vHolder, actBar);
+  } 
+
+  _wireActBar = (vHolder, actBar) => {
+    const acceptBtn = newTag('button', 'prim-btn', 'BEKRÄFTA', actBar);
     acceptBtn.addEventListener('click', () => {
       
     });
 
-    const cancBtn = newTag('button', 'prim-var-btn', 'Tillbaka', actBar);
+    const cancBtn = newTag('button', 'prim-var-btn', 'TILLBAKA', actBar);
     cancBtn.addEventListener('click', () => {
-      new DayView(vHolder, actBar);
+      new ExtrasView(vHolder, actBar);
     });
   }
 }
