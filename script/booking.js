@@ -22,6 +22,34 @@ class InfoCard {
   }
 }
 
+class OptsCard {
+  constructor(vHolder) {
+    this._root = newTag('section', 'card', null, vHolder);
+  }
+  
+  addOpts = (title, opts, type, group) => {
+    newTag('h2', null, title, this._root);
+    const form = newTag('form', 'travel-btns', null, this._root);
+    opts.forEach(opt => {
+      this._addOpt(opt, form, type, group);
+    });
+  }
+
+  _addOpt = (opt, form, type, group) => {
+    const travOpt = newTag('div', 'travel-opt', null, form);
+    const btn = newTag('input', 'travel-btn', null, travOpt);
+    btn.type = type;
+    btn.name = group;
+    btn.id = opt;
+    btn.value = opt; 
+    const label = newTag('label', null, opt, travOpt); 
+    label.setAttribute('for', opt);
+    btn.addEventListener('change', () => {
+      if(btn.checked) console.log(btn.id)
+    });
+  }
+}
+
 class FieldCard {
   constructor(vHolder, title) {
     this._root = newTag('section', 'card', null, vHolder);
@@ -36,6 +64,9 @@ class FieldCard {
     field.id = title;
     field.type = 'text;'
     field.placeHolder = title;
+    field.addEventListener('change', () => {
+      console.log(field.value);
+    });
   }
 }
 
@@ -115,7 +146,6 @@ class DestView {
     });
   }
 }
-
 
 class YearView {
   constructor(vHolder, actBar) {
@@ -215,45 +245,26 @@ class ExtrasView {
   constructor(vHolder, actBar) {
     vHolder.innerHTML = '';
     actBar.innerHTML = '';
-    this._root = newTag('section', 'card', null, vHolder);
-    this._wireActBar(vHolder, actBar);
-    this._addOpts(
+    const card = new OptsCard(vHolder);
+    card.addOpts(
       'Är resa återkommande?', 
       ['Nej', 'Varje vecka', 'Varannan vecka', 'Varje månad'], 
       'radio',
       'tripOpts'
     );
-    this._addOpts(
+    card.addOpts(
       'Är resa återkommande?', 
       ['Jag har rullstol', 'Jag har ledarhund'], 
       'checkbox',
       'extraOpts'
     );
- 
-  }
-
-  _addOpts = (title, opts, type, group) => {
-    newTag('h2', null, title, this._root);
-    const form = newTag('form', 'travel-btns', null, this._root);
-    opts.forEach(opt => {
-      const travOpt = newTag('div', 'travel-opt', null, form);
-      const btn = newTag('input', 'travel-btn', null, travOpt);
-      btn.type = type;
-      btn.name = group;
-      btn.id = opt;
-      btn.value = opt; 
-      const label = newTag('label', null, opt, travOpt); 
-      label.setAttribute('for', opt);
-      btn.addEventListener('change', () => {
-        if(btn.checked) console.log(btn.id)
-      })
-    });
+    this._wireActBar(vHolder, actBar);
   }
 
   _wireActBar = (vHolder, actBar) => {
     const acceptBtn = newTag('button', 'prim-btn', 'NÄSTA', actBar);
     acceptBtn.addEventListener('click', () => {
-      new SpecsView(vHolder, actBar);
+      new DetailView(vHolder, actBar);
     });
 
     const cancBtn = newTag('button', 'prim-var-btn', 'TILLBAKA', actBar);
@@ -263,7 +274,7 @@ class ExtrasView {
   }
 }
 
-class SpecsView {
+class DetailView {
   constructor(vHolder, actBar) {
     vHolder.innerHTML = '';
     actBar.innerHTML = '';
