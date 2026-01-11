@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO optimering -->
+    <meta name="description" content="Boka färdtjänst. Boka serviceresor inom Lunds kommun.">
+    <title>Dialogruta - Är du säker på att du vill göra din bokning? | Lunds Färdtjänst</title>
+
+    <!-- Favoritikon -->
+    <link rel="icon" href="./assets/favicon.svg">
+
+    <!-- Laddar CSS stilar -->
+    <link rel="stylesheet" href="./styles/root.css">
+    <link rel="stylesheet" href="./styles/dialog.css">
+    <link rel="stylesheet" href="./styles/prim-btn.css">
+    <link rel="stylesheet" href="./styles/prim-var-btn.css">
+
+
+    <!-- Laddar teckensnitt från Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  </head>
+  <body class="modal">
+
+    <!-- 
+      ** Detta är min egen lösning för dialogrutor. Den är inte fin men åtminstone webbtillgänglig plus
+      ** att man slipper skriva all boilerplate i form av tabindex=-1, element.focus(), aria si och aria så
+      ** som ändå inte fungerar som det ska.
+    -->
+    <main class="dialog">
+      <h1 class="headline">Är du säker?</h1>
+      <p>Innehållet genereras dynamiskt</p>
+      <button id="accept-btn" class="prim-btn">JA, BOKA</button>
+      <button id="cancel-btn" class="prim-var-btn">NEJ, AVBRYT</button>
+    </main>
+
+    <!-- Kör logiken bakom bokningsbekräftelsen -->
+    <script defer src="./script/confirm.js"></script>
+  </body>
+</html>

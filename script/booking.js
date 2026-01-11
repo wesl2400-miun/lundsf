@@ -291,6 +291,7 @@ class DetailView {
     const acceptBtn = newTag('button', 'prim-btn', 'BEKRÄFTA', actBar);
     acceptBtn.addEventListener('click', () => {
       
+      window.location.href = `./confirm.html`;
     });
 
     const cancBtn = newTag('button', 'prim-var-btn', 'TILLBAKA', actBar);
