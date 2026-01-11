@@ -1,0 +1,42 @@
+.mod-opt {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mod-btn {
+  width: 80px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--brand-secondary);
+  color: var(--brand-on-secondary);
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 0.7rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+}
+
+/** Byt stilen på knappen beroende på dess nuvarande tillstånd**/
+.mod-btn:focus {
+  outline: 3px double var(--brand-on-surface);
+  outline-offset: 2px;
+}
+
+.mod-btn:hover {
+  background-color: var(--brand-accent-secondary);
+}
+
+.mod-btn:active {
+  background-color: var(--brand-secondary);
+}

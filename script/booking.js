@@ -22,6 +22,28 @@ class InfoCard {
   }
 }
 
+class TravCard {
+  constructor(vHolder, actBar, city, address, travInfo) {
+    this._root = newTag('section', 'card', null, vHolder);
+    this._city = newTag('h2', null, city, this._root);
+    this._address = newTag('h3', null, address, this._root);
+    this._travInfo = newTag('p', null, travInfo, this._root);
+    this.addActBar(vHolder, actBar);
+  }
+
+  addActBar = (vHolder, actBar) => {
+    const btns = newTag('div', 'mod-opt', null, this._root);
+    const delBtn = newTag('button', 'mod-btn', 'Avboka', btns);
+    delBtn.addEventListener('click', () => {
+      vHolder.removeChild(this._root);
+    });
+    const modBtn = newTag('button', 'mod-btn', 'Ändra', btns);
+    modBtn.addEventListener('click', () => {
+      new DestView(vHolder, actBar);
+    });
+  }
+}
+
 class OptsCard {
   constructor(vHolder) {
     this._root = newTag('section', 'card', null, vHolder);
@@ -111,6 +133,8 @@ class TravView {
       'Bokade resor', 
       'Nedan finns resor som du redan har bokat.'
     );
+
+    new TravCard(vHolder, actBar, 'Lund', 'Gata 19', 'Info');
     this._wireActBar(vHolder, actBar);
   } 
 
@@ -290,7 +314,7 @@ class DetailView {
   _wireActBar = (vHolder, actBar) => {
     const acceptBtn = newTag('button', 'prim-btn', 'BEKRÄFTA', actBar);
     acceptBtn.addEventListener('click', () => {
-      
+
       window.location.href = `./confirm.html`;
     });
 
