@@ -9,26 +9,19 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: 0.5rem;
   box-sizing: border-box;
   background-color: var(--brand-background);
-  padding: 0.5rem 0;
-  border-top: 1px solid var(--brand-accent);
-}
-
-.single-choice {
-  width: 100%;
-  gap: 0;
-  box-sizing: border-box;
+  gap: 0.5rem;
   padding: 0.5rem;
+  border-top: 1px solid var(--brand-accent);
 }
 
 .toolbar .prim-btn, 
 .toolbar .prim-var-btn {
-  width: 45%;
+  width: 50%;
 }
 
-.toolbar .prim-btn {
+.single-choice .prim-btn {
   width: 100%;
 }
 

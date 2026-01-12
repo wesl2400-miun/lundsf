@@ -1,5 +1,6 @@
 import { getTag, newSec, newH2, newH3, newP, newBtn, newDiv } from './utils.js';
 import { Trips } from './trips.js';
+import { PATH } from './refs.js';
 
 export class TripCard {
   constructor(trip, root) {
@@ -15,7 +16,7 @@ export class TripCard {
   addRemBtn = (index) => {
     const remBtn = newBtn('trip-btn', 'Avboka', this._btns);
     remBtn.addEventListener('click', () => {
-      window.location.href = `./remove.html?index=${index}`;
+      window.location.href = `${PATH.REMOVE}?index=${index}`;
     });
   }
 
@@ -62,7 +63,7 @@ export class TripView {
     tbar.classList.add('single-choice');
     const btn = newBtn('prim-btn', 'BOKA NY RESA', tbar);
     btn.addEventListener('click', () => {
-    
+      window.location.href = `${PATH.DESTINATION}`;
     });
   }
 }

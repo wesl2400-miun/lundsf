@@ -1,5 +1,6 @@
 import { getTag } from './utils.js';
 import { Trips } from "./trips.js";
+import { PATH } from './refs.js';
 
 const params = new URLSearchParams(window.location.search);
 const index = params.get('index');
@@ -16,11 +17,11 @@ window.addEventListener('load', () => {
   const actBtn = getTag('accept-btn');
   actBtn.addEventListener('click', () => {
     trips.remTrip(index);
-    window.location.href = './booking.html';
+    window.location.href = `${PATH.BOOKING}`;
   });
 
   const cancBtn = getTag('cancel-btn');
   cancBtn.addEventListener('click', () => {
-    window.location.href = './booking.html';
+    window.location.href = `${PATH.BOOKING}`;
   });
 });
