@@ -12,8 +12,7 @@ window.addEventListener('load', () => {
 
   const actBtn = getTag('accept-btn');
   actBtn.addEventListener('click', () => {
-    console.log(temp);
-    
+    window.location.href = `${PATH.MONTH}?temp=${temp.value}`;
   });
     
   const cancBtn = getTag('cancel-btn');

@@ -14,11 +14,11 @@ export class Trips {
   cacheTrip = (name, from, to, date, opts) => {
     const trip = loadRec(STORAGE.TRIP);
     const updated = {
-      name: name || trip.name || '',
-      from: from || trip.from || '',
-      to: to || trip.to || '',   
-      date: date || trip.date || '',
-      opts: opts || trip.opts || '' 
+      name: name || trip?.name || '',
+      from: from || trip?.from || '',
+      to: to || trip?.to || '',   
+      date: date || trip?.date || '',
+      opts: opts || trip?.opts || '' 
     }
     saveRec(STORAGE.TRIP, updated);
     console.log(loadRec(STORAGE.TRIP));

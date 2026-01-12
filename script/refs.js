@@ -11,5 +11,6 @@ export const PATH = Object.freeze({
   YEAR: './year.html',
   MONTH: './month.html',
   DAY: './day.html',
+  TIME: './time.html',
   OPTIONS: './options.html',
 });
