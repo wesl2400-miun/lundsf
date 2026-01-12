@@ -7,5 +7,9 @@ export const STORAGE = Object.freeze({
 export const PATH = Object.freeze({
   REMOVE: './remove.html',
   BOOKING: './booking.html',
-  DESTINATION: './destination.html'
+  DESTINATION: './destination.html',
+  YEAR: './year.html',
+  MONTH: './month.html',
+  DAY: './day.html',
+  OPTIONS: './options.html',
 });

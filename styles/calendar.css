@@ -1,5 +1,5 @@
 /** Applicerar stilen på kalender-knapparna **/
-.calendar-btns {
+.calendar {
   width: 100%;
   display: flex;
   justify-content: start;

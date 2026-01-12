@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO optimering -->
+    <meta name="description" content="Boka färdtjänst. Välj år för dina serviceresor inom Lunds kommun.">
+    <title>Boka färdtjänst - Välj år | Lunds Färdtjänst</title>
+
+    <!-- Favoritikon -->
+    <link rel="icon" href="./assets/favicon.svg">
+
+    <!-- Prestanda optimering -->
+     <link rel="preload" href="./styles/root.css" as="style">
+
+    <!-- Laddar CSS stilar -->
+    <link rel="stylesheet" href="./styles/root.css">
+    <link rel="stylesheet" href="./styles/logo.css">
+    <link rel="stylesheet" href="./styles/nav.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/headline.css">
+    <link rel="stylesheet" href="./styles/card.css">
+    <link rel="stylesheet" href="./styles/toolbar.css">
+    <link rel="stylesheet" href="./styles/prim-btn.css">
+    <link rel="stylesheet" href="./styles/prim-var-btn.css">
+    <link rel="stylesheet" href="./styles/calendar.css">
+
+    <!-- Laddar teckensnitt från Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Sidhuvud -->
+    <header>
+      <div class="logo">
+        <a aria-label="Lunds Färdtjänst logotyp, navigera till startsidan." href="./index.html">
+          <img src="./assets/logo.svg" alt="">
+        </a>
+      </div>
+
+      <!-- Navigeringsfältet - aria-label är avsedd för blinda och ska läsas av skärmläsare -->
+      <nav class="nav">
+        <!-- Navigeringsmeny -->
+        <div id="menu">
+          <button id="menu-btn" aria-label="Öppna menyn">
+            <img src="./assets/menu-closed.svg" alt="">
+          </button>
+        </div>
+
+        <!-- Navigeringsrutter -->
+        <ul id="routes" aria-label="Navigera till">
+          <li class="route--selected" aria-current="page"><a href="./index.html">Boka färdtjänst</a></li>
+          <li><a href="/">Mina Sidor</a></li>
+          <li><a href="/">Om färdtjänst</a></li>
+          <li><a href="/">Kontakta oss</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Huvudinnehåll -->
+    <main id="main">
+      <h1 class="headline">Boka färdtjänst</h1>
+
+      <!-- Innehållet genereras dynamiskt via year.js skript -->
+
+      <div class="toolbar">
+        <button id="accept-btn" class="prim-btn">NÄSTA</button>
+        <button id="cancel-btn" class="prim-btn">TILLBAKA</button>
+      </div>
+    </main>
+
+    <!-- Kör logiken bakom den hopfällbara menyn -->
+    <script defer src="./script/menu.js"></script>
+
+    <script type="module" defer src="./script/year.js"></script>
+  </body>
+</html>
