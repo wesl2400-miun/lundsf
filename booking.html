@@ -21,15 +21,9 @@
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/headline.css">
     <link rel="stylesheet" href="./styles/card.css">
-    <link rel="stylesheet" href="./styles/view-holder.css">
-    <link rel="stylesheet" href="./styles/action-bar.css">
-    <link rel="stylesheet" href="./styles/dialog.css">
+    <link rel="stylesheet" href="./styles/toolbar.css">
     <link rel="stylesheet" href="./styles/prim-btn.css">
-    <link rel="stylesheet" href="./styles/prim-var-btn.css">
-    <link rel="stylesheet" href="./styles/travel-btns.css">
-    <link rel="stylesheet" href="./styles/calendar-btns.css">
-    <link rel="stylesheet" href="./styles/mod-btn.css">
-    <link rel="stylesheet" href="./styles/form.css">
+    <link rel="stylesheet" href="./styles/trip-btn.css">
 
     <!-- Laddar teckensnitt från Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,7 +40,7 @@
       </div>
 
       <!-- Navigeringsfältet - aria-label är avsedd för blinda och ska läsas av skärmläsare -->
-      <nav class="nav" aria-label="Navigeringsfältet">
+      <nav class="nav">
         <!-- Navigeringsmeny -->
         <div id="menu">
           <button id="menu-btn" aria-label="Öppna menyn">
@@ -67,16 +61,17 @@
     <!-- Huvudinnehåll -->
     <main id="main">
       <h1 class="headline">Boka färdtjänst</h1>
+
+      <!-- Innehållet genereras dynamiskt via trip-view.js skript -->
       
-      <!-- Här kommer boknings-funktionen genereras dynamiskt med JavaScript -->
-      <div id="view-holder"></div>
-      <div id="action-bar"></div>
+      <div class="toolbar single-choice">
+        <button class="prim-btn">BOKA NY RESA</button>
+      </div>
     </main>
 
     <!-- Kör logiken bakom den hopfällbara menyn -->
     <script defer src="./script/menu.js"></script>
 
-    <!-- Kör logiken bakom bokningsfunktionen -->
-    <script defer src="./script/booking.js"></script>
+    <script type="module" defer src="./script/trips-view.js"></script>
   </body>
 </html>

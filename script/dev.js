@@ -1,128 +1,15 @@
+import { 
+  newTag,
+  getTag
+} from './utils.js';
 
-
-// Hämta ett existerande HTML-element
-const tag = (id) => {
-  return document.getElementById(id);
-}
-
-// Skapar och returnerar nytt HTML-element
-const newTag = (type, css, text, parent) => {
-  const tag = document.createElement(type);
-  if(css) tag.classList.add(css);
-  if(text) tag.textContent = text;
-  if(parent) parent.appendChild(tag);
-  return tag;
-}
-
-class InfoCard {
-  constructor(vHolder, title, text) {
-    this._root = newTag('section', 'card', null, vHolder);
-    newTag('h2', null, title, this._root);
-    newTag('p', null, text, this._root);
-  }
-}
-
-class TravCard {
-  constructor(vHolder, actBar, city, address, travInfo) {
-    this._root = newTag('section', 'card', null, vHolder);
-    this._city = newTag('h2', null, city, this._root);
-    this._address = newTag('h3', null, address, this._root);
-    this._travInfo = newTag('p', null, travInfo, this._root);
-    this.addActBar(vHolder, actBar);
-  }
-
-  addActBar = (vHolder, actBar) => {
-    const btns = newTag('div', 'mod-opt', null, this._root);
-    const delBtn = newTag('button', 'mod-btn', 'Avboka', btns);
-    delBtn.addEventListener('click', () => {
-      vHolder.removeChild(this._root);
-    });
-    const modBtn = newTag('button', 'mod-btn', 'Ändra', btns);
-    modBtn.addEventListener('click', () => {
-      new DestView(vHolder, actBar);
-    });
-  }
-}
-
-class OptsCard {
-  constructor(vHolder) {
-    this._root = newTag('section', 'card', null, vHolder);
-  }
-  
-  addOpts = (title, opts, type, group) => {
-    newTag('h2', null, title, this._root);
-    const form = newTag('form', 'travel-btns', null, this._root);
-    opts.forEach(opt => {
-      this._addOpt(opt, form, type, group);
-    });
-  }
-
-  _addOpt = (opt, form, type, group) => {
-    const travOpt = newTag('div', 'travel-opt', null, form);
-    const btn = newTag('input', 'travel-btn', null, travOpt);
-    btn.type = type;
-    btn.name = group;
-    btn.id = opt;
-    btn.value = opt; 
-    const label = newTag('label', null, opt, travOpt); 
-    label.setAttribute('for', opt);
-    btn.addEventListener('change', () => {
-      if(btn.checked) console.log(btn.id)
-    });
-  }
-}
-
-class FieldCard {
-  constructor(vHolder, title) {
-    this._root = newTag('section', 'card', null, vHolder);
-    newTag('h2', null, title, this._root);
-  }
-
-  addField = (title) => {
-    const form = newTag('form', 'form', null, this._root);
-    const label = newTag('label', 'label', title, form);
-    label.setAttribute('for', title);
-    const field = newTag('input', null, null, form);
-    field.id = title;
-    field.type = 'text;'
-    field.placeHolder = title;
-    field.addEventListener('change', () => {
-      console.log(field.value);
-    });
-  }
-}
-
-class CalCard {
-  constructor(vHolder, title, text, dates) {
-    this._root = newTag('section', 'card', null, vHolder);
-    newTag('h2', null, title, this._root);
-    if(text) newTag('p', null, text, this._root);
-    this._renderBtns(dates);
-  }
-
-  _renderBtns(dates) {
-    const bHolder = newTag('div', 'calendar-btns', null, this._root);
-    bHolder.role = 'radiogroup';
-    this._dates = dates.map(date => {
-      return this._newBtn(date, bHolder);
-    });
-  }
-
-  _newBtn = (date, bHolder) => {
-    const current = newTag('button', 'calendar-btn', date, bHolder);
-    current.role = 'radio';
-    current.id = date;
-    current.ariaChecked = false;
-    current.ariaLabel = date;
-    current.addEventListener('click', () => {
-      current.ariaChecked = true;
-      this._dates.forEach(btn => {
-        if(btn.id !== current.id) btn.ariaChecked = false;
-      });
-    });
-    return current;
-  }
-}
+import {
+  InfoCard,
+  TravCard,
+  OptsCard,
+  FieldCard,
+  CalCard
+} from './cards.js';
 
 class TravView {
   constructor(vHolder, actBar) {
@@ -326,8 +213,8 @@ class DetailView {
 }
 
 window.addEventListener('load', () => {
-  const vHolder = tag('view-holder');
-  const actBar = tag('action-bar');
+  const vHolder = getTag('view-holder');
+  const actBar = getTag('action-bar');
   const travView = new TravView(vHolder, actBar);
 
 });

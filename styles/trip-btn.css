@@ -1,4 +1,4 @@
-.mod-opt {
+.trip-btns {
   width: 100%;
   display: flex;
   justify-content: start;
@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 
-.mod-btn {
+.trip-btn {
   width: 80px;
   height: 35px;
   display: flex;
@@ -27,16 +27,15 @@
   user-select: none;
 }
 
-/** Byt stilen på knappen beroende på dess nuvarande tillstånd**/
-.mod-btn:focus {
+.trip-btn:focus {
   outline: 3px double var(--brand-on-surface);
   outline-offset: 2px;
 }
 
-.mod-btn:hover {
+.trip-btn:hover {
   background-color: var(--brand-accent-secondary);
 }
 
-.mod-btn:active {
+.trip-btn:active {
   background-color: var(--brand-secondary);
 }
