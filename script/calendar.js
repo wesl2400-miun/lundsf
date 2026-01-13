@@ -97,10 +97,11 @@ class YearView {
   }
 }
 
-
+const params = new URLSearchParams(window.location.search);
+const view = params.get('view');
 
 window.addEventListener('load', () => {
   const main = getTag('main');
-  new YearView(main);
-
+  if(view) new DayView(main);
+  else new YearView(main);
 });

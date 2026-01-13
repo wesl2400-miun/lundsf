@@ -10,6 +10,9 @@ export const PATH = Object.freeze({
   DESTINATION: './destination.html',
   CALENDAR: './calendar.html',
   OPTIONS: './options.html',
+  DETAILS: './details.js',
+  CONFIRMATION: './confirmation.html',
+  SUCCESS: './success.html'
 });
 
 export const STR = Object.freeze({
@@ -28,5 +31,7 @@ export const STR = Object.freeze({
   BTN_NEXT: 'NÄSTA',
   BTN_DEC: 'AVBRYT',
   BTN_CONF: 'BEKRÄFTA',
-  BTN_PREV: 'TILLBAKA'
+  BTN_PREV: 'TILLBAKA',
+  BTN_REMOVE_YES: 'JA, AVBOKA',
+  BTN_REMOVE_NO: 'NEJ, AVBRYT'
 });

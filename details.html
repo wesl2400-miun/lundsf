@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO optimering -->
-    <meta name="description" content="Boka färdtjänst. Boka återkommande serviceresor inom Lunds kommun. Anpassa din resa för rullstol eller ledarhund.">
-    <title>Boka färdtjänst - Anpassa din serviceresa | Lunds Färdtjänst</title>
+    <meta name="description" content="Boka färdtjänst. Bekräfta dina perosnuppgifter och boka en serviceresa inom Lunds kommun.">
+    <title>Boka färdtjänst - Bekräfta dina personuppgifter | Lunds Färdtjänst</title>
 
     <!-- Favoritikon -->
     <link rel="icon" href="./assets/favicon.svg">
+
+    <!-- Prestanda optimering -->
+     <link rel="preload" href="./styles/root.css" as="style">
 
     <!-- Laddar CSS stilar -->
     <link rel="stylesheet" href="./styles/root.css">
@@ -21,7 +24,7 @@
     <link rel="stylesheet" href="./styles/toolbar.css">
     <link rel="stylesheet" href="./styles/prim-btn.css">
     <link rel="stylesheet" href="./styles/prim-var-btn.css">
-    <link rel="stylesheet" href="./styles/check-btn.css">
+    <link rel="stylesheet" href="./styles/form.css">
 
     <!-- Laddar teckensnitt från Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,87 +62,27 @@
     <!-- Huvudinnehåll -->
     <main id="main">
       <h1 class="headline">Boka färdtjänst</h1>
-
+      
       <section class="card">
-
-        <form class="check-btns">
+        <form class="form">
           <fieldset>
-            <legend>Är resa återkommande?</legend>
+            <legend>Dina uppgifter</legend>
 
-            <div class="check-opt">
-              <input 
-                id="no-roundtrip" 
-                class="check-btn" 
-                type="radio"
-                name="round-trip" 
-                value="Nej">
-              <label for="no-roundtrip">Nej</label>
-            </div>
-
-            <div class="check-opt">
-              <input 
-                id="each-week" 
-                class="check-btn" 
-                type="radio"
-                name="round-trip" 
-                value="Varj vecka">
-              <label for="each-week">Varje vecka</label>
-            </div>
-
-            <div class="check-opt">
-              <input 
-                id="every-second-week" 
-                class="check-btn" 
-                type="radio"
-                name="round-trip" 
-                value="Varannan vecka">
-              <label for="every-second-week">Varannan vecka</label>
-            </div>
-
-            <div class="check-opt">
-              <input 
-                id="each-month" 
-                class="check-btn" 
-                type="radio"
-                name="round-trip" 
-                value="Varje månad">
-              <label for="each-week">Varje månad</label>
-            </div>
-
-          </fieldset>
-
-          <fieldset>
-            <legend>Övrigt</legend>
-
-            <div class="check-opt">
-              <input 
-                id="wheel-chair" 
-                class="check-btn" 
-                type="checkbox"
-                name="extras" 
-                value="Jag har rullstol">
-              <label for="wheel-chair">Jag har rullstol</label>
-            </div>
-
-            <div class="check-opt">
-              <input 
-                id="dog-assistant" 
-                class="check-btn" 
-                type="checkbox"
-                name="extras" 
-                value="Jag har ledarhund">
-              <label for="dog-assistant">Jag har ledarhund</label>
-            </div>
-            
+            <label for="address" name="detsination" class="label">Gatuadress</label>
+            <input id="address" name="detsination" type="text" maxlength="25">
+            <label for="code" name="detsination" class="label">Postnummer</label>
+            <input id="code" name="detsination" type="text" maxlength="25">
+            <label for="city" name="detsination" class="label">Postort</label>
+            <input id="city" name="detsination" type="text" maxlength="25">
           </fieldset>
         </form>
       </section>
-
+      
     </main>
 
     <!-- Kör logiken bakom den hopfällbara menyn -->
     <script defer src="./script/menu.js"></script>
 
-    <script type="module" defer src="./script/options.js"></script>
+    <script type="module" defer src="./script/details.js"></script>
   </body>
 </html>

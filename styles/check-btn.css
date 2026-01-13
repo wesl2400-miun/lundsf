@@ -1,5 +1,5 @@
-/** Applicera stilen på 'Avboka' och 'Ändra' knapparna för kort som visar bokad resa **/
-.travel-btns {
+
+.check-btns {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -10,18 +10,34 @@
   margin-bottom: 1rem;
 }
 
-.travel-opt {
+.check-btns fieldset {
+  width: inherit;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.check-btns legend {
+  width: inherit;
+  padding: 0.3rem 0rem;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.check-opt {
   width: 100%;
   display: flex;
   justify-content: start;
   align-items: center;
   flex-direction: row;
   margin: 0;
-  padding: 0;
+  padding: 0.3rem 0;
   box-sizing: border-box;
 }
 
-.travel-btn {
+.check-btn {
   width: 35px;
   height: 35px;
   display: flex;
@@ -39,16 +55,16 @@
   user-select: none;
 }
 
-/** Byt stilen på knappen beroende på dess nuvarande tillstånd**/
-.travel-btn:focus {
+.check-btn:focus {
   outline: 3px double var(--brand-on-surface);
   outline-offset: 2px;
 }
 
-.travel-btn:hover {
+.check-btn:hover {
   background-color: var(--brand-accent-secondary);
 }
 
-.travel-btn:active {
+.check-btn:active {
   background-color: var(--brand-secondary);
 }
+

@@ -8,6 +8,22 @@
   gap: 0.5rem;
 }
 
+.form fieldset {
+  width: inherit;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.form legend {
+  width: inherit;
+  padding: 0.3rem 0rem;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 20px;
+}
+
 .form input {
   width: inherit;
   height: 50px;

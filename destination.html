@@ -11,9 +11,6 @@
     <!-- Favoritikon -->
     <link rel="icon" href="./assets/favicon.svg">
 
-    <!-- Prestanda optimering -->
-     <link rel="preload" href="./styles/root.css" as="style">
-
     <!-- Laddar CSS stilar -->
     <link rel="stylesheet" href="./styles/root.css">
     <link rel="stylesheet" href="./styles/logo.css">
@@ -64,17 +61,20 @@
       <h1 class="headline">Boka färdtjänst</h1>
 
       <section class="card">
-        <h2>Välj destination</h2>
         <form class="form">
-          <label for="address" class="label">Gatuadress</label>
-          <input id="address" type="text" maxlength="25">
-          <label for="code" class="label">Postnummer</label>
-          <input id="code" type="text" maxlength="25">
-          <label for="city" class="label">Postort</label>
-          <input id="city" type="text" maxlength="25">
+          <fieldset>
+            <legend>Välj destination</legend>
+
+            <label for="address" name="detsination" class="label">Gatuadress</label>
+            <input id="address" name="detsination" type="text" maxlength="25">
+            <label for="code" name="detsination" class="label">Postnummer</label>
+            <input id="code" name="detsination" type="text" maxlength="25">
+            <label for="city" name="detsination" class="label">Postort</label>
+            <input id="city" name="detsination" type="text" maxlength="25">
+          </fieldset>
         </form>
       </section>
-      
+
     </main>
 
     <!-- Kör logiken bakom den hopfällbara menyn -->
