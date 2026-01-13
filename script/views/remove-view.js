@@ -6,7 +6,7 @@ import { Toolbar } from './toolbar.js';
 const params = new URLSearchParams(window.location.search);
 const index = params.get('index');
 const trips = new Trips();
-const current  = trips.list[index];
+const current  = trips.list[index] || '';
 const { name, from, to , date, opts } = current;
 
 window.addEventListener('load', () => {
@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
     '. Från: '+ from + '. Till: ' + to + '. Datum: ' + date + '. Övrigt: ' + opts; 
   mess.textContent = info;
 
-  const tbar = new Toolbar(main);
+  const tbar = new Toolbar(main, 'inside-dialog');
   tbar.wireActBtn(STR.BTN_DIAG_REMOVE, PATH.BOOKING, () => {
      trips.remTrip(index);
   });

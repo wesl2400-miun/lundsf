@@ -5,13 +5,14 @@ export class CalCard {
     this._root = newSec(root);
     newH2(title, this._root);
     if(text) newP(text, this._root);
+    this.boxes = [];
   }
 
   render(list) {
     const calendar = newDiv('calendar', this._root);
     calendar.role = 'radiogroup';
-    this._btns = list.map(label => {
-      return this._btn(label, calendar);
+    list.forEach(label => {
+      this.boxes.push(this._btn(label, calendar));
     });
   }
 
@@ -19,12 +20,13 @@ export class CalCard {
     const curnt = newBtn('calendar-btn', label, calendar);
     curnt.role = 'radio';
     curnt.id = label;
-    curnt.ariaChecked = false;
+    curnt.ariaChecked = 'false';
     curnt.ariaLabel = label;
+    curnt.value = label;
     curnt.addEventListener('click', () => {
-      curnt.ariaChecked = true;
-      this._btns.forEach(btn => {
-        if(btn.id !== curnt.id) btn.ariaChecked = false;
+      curnt.ariaChecked = 'true';
+      this.boxes.forEach(btn => {
+        if(btn.id !== curnt.id) btn.ariaChecked = 'false';
       });
     });
     return curnt;

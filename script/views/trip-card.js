@@ -1,14 +1,14 @@
-import { newSec, newH2, newH3, newP, newBtn, newDiv } from '../utils.js';
-import { PATH } from '../refs.js';
+import { newSec, newH2, newH3, newP, newBtn, newDiv, saveRec } from '../utils.js';
+import { PATH, STORAGE } from '../refs.js';
 
 export class TripCard {
   constructor(trip, root) {
     this._main = root;
     this._root = newSec(this._main);
-    const { name, from, to, date, opts } = trip;
+    const { name, from, to, time, repeat, help } = trip;
     newH2(`${to}`, this._root);
-    newH3(`${date}`, this._root);
-    newP(`${name}, från: ${from}, övrigt: ${opts}`, this._root);
+    newH3(`${time}`, this._root);
+    newP(`${name}, ${from}, ${repeat} ${help}`, this._root);
     this._btns = newDiv('trip-btns', this._root);
   }
 
@@ -19,12 +19,10 @@ export class TripCard {
     });
   }
 
-  addModBtn = (index, list, trips) => {
+  addModBtn = (index) => {
     const modBtn = newBtn('trip-btn', 'Ändra', this._btns);
     modBtn.addEventListener('click', () => {
-      const current = list[index];
-      const { name, from, to, date, opts } = current;
-      trips.cacheTrip(name, from, to, date, opts);
+      saveRec(STORAGE.CURRENT_TRIP, index);
     });
   }
 }

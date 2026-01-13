@@ -5,7 +5,9 @@ export const ICON = Object.freeze({
 });
 
 export const STORAGE = Object.freeze({
-  TRIP: 'TRIP',
+  CACHED_TRIP: 'CACHED_TRIP',
+  CACHED_PROFILE: 'CACHED_PROFILE',
+  PROFILE: 'PROFILE',
   TRIPS: 'TRIPS'
 });
 

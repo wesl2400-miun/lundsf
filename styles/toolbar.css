@@ -31,7 +31,7 @@
   flex-direction: column;
 }
 
-.inside-dialog .prim-btn {
+.inside-dialog .prim-btn, .prim-var-btn {
   width: 90%;
 }
 
