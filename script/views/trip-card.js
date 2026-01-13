@@ -1,5 +1,5 @@
-import { newSec, newH2, newH3, newP, newBtn, newDiv } from './utils.js';
-import { PATH } from './refs.js';
+import { newSec, newH2, newH3, newP, newBtn, newDiv } from '../utils.js';
+import { PATH } from '../refs.js';
 
 export class TripCard {
   constructor(trip, root) {

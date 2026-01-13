@@ -1,8 +1,8 @@
-import { Trips } from './trips.js';
+import { Trips } from '../data/trips.js';
 import { TripCard } from './trip-card.js';
 import { Toolbar } from './toolbar.js';
-import { PATH, STR } from './refs.js';
-import { getTag, newSec, newH2, newP, newH1 } from './utils.js';
+import { PATH, STR } from '../refs.js';
+import { getTag, newSec, newH2, newP, newH1 } from '../utils.js';
 
 
 class TripView {

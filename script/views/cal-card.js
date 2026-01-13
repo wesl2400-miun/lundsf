@@ -1,4 +1,4 @@
-import { newSec, newH2, newBtn, newP, newDiv } from './utils.js';
+import { newSec, newH2, newBtn, newP, newDiv } from '../utils.js';
 
 export class CalCard {
   constructor(root, title, text) {

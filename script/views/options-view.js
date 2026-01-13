@@ -1,6 +1,6 @@
-import { PATH, STR } from "./refs.js";
-import { Toolbar } from "./toolbar.js";
-import { getTag } from "./utils.js";
+import { getTag } from '../utils.js';
+import { PATH, STR } from '../refs.js';
+import { Toolbar } from './toolbar.js';
 
 
 window.addEventListener('load', () => {

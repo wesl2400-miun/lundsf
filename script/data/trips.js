@@ -1,5 +1,5 @@
-import { loadRec, saveRec } from './utils.js';
-import { STORAGE } from './refs.js';
+import { loadRec, saveRec } from '../utils.js';
+import { STORAGE } from '../refs.js';
 
 export class Trips {
   constructor() {

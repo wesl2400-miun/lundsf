@@ -1,5 +1,5 @@
-import { ICON } from './refs.js';
-import { getTag } from './utils.js';
+import { ICON } from '../refs.js';
+import { getTag } from '../utils.js';
 
 const hide = (tag) => {
   tag.style.display = 'none';

@@ -1,7 +1,7 @@
 import { CalCard } from './cal-card.js';
-import { PATH, STR } from './refs.js';
+import { PATH, STR } from '../refs.js';
 import { Toolbar } from './toolbar.js';
-import { getTag, newH1 } from './utils.js';
+import { getTag, newH1 } from '../utils.js';
 
 class TimeView {
   constructor(root) {

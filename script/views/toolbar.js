@@ -1,4 +1,4 @@
-import { newBtn, newDiv } from './utils.js';
+import { newBtn, newDiv } from '../utils.js';
 
 export class Toolbar {
   constructor(root, extStyle) {

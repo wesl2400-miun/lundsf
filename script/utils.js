@@ -1,3 +1,4 @@
+
 export const newTag = (type, css, text, root) => {
   const tag = document.createElement(type);
   if(css) tag.classList.add(css);
