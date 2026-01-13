@@ -10,7 +10,7 @@ export const PATH = Object.freeze({
   DESTINATION: './destination.html',
   CALENDAR: './calendar.html',
   OPTIONS: './options.html',
-  DETAILS: './details.js',
+  DETAILS: './details.html',
   CONFIRMATION: './confirmation.html',
   SUCCESS: './success.html'
 });
