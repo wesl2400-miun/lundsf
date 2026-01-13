@@ -2,7 +2,7 @@ import { Trips } from './trips.js';
 import { TripCard } from './trip-card.js';
 import { Toolbar } from './toolbar.js';
 import { PATH, STR } from './refs.js';
-import { getTag, newSec, newH2, newP } from './utils.js';
+import { getTag, newSec, newH2, newP, newH1 } from './utils.js';
 
 
 class TripView {
@@ -28,6 +28,7 @@ class TripView {
   }
 
   _addInfo = (text, main) => {
+    newH1('Boka färdtjänst', main);
     const card = newSec(main);
     newH2(STR.BOOKING_TRIPS, card);
     newP(text, card);

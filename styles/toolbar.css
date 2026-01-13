@@ -18,12 +18,21 @@
 
 .toolbar .prim-btn, 
 .toolbar .prim-var-btn {
-  width: 50%;
+  width: 100%;
 }
 
 .single-choice .prim-btn {
   width: 100%;
 }
 
+.inside-dialog {
+  position: static;
+  border: none;
+  flex-direction: column;
+}
+
+.inside-dialog .prim-btn {
+  width: 100%;
+}
 
 

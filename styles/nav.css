@@ -30,6 +30,7 @@
   align-items: center;
   flex-direction: column;
   cursor: pointer;
+
 }
 
 /** Se till att meny-knappen kan kommas åt via assisterande teknik **/
@@ -62,6 +63,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border-top: 2px solid var(--brand-on-navbar);
+  padding: 0;
+  margin: 0;
 }
 
 #routes li:last-child {
@@ -78,7 +82,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-top: 2px solid var(--brand-on-navbar);
   font-weight: 500;
   font-size: 22px;
   color: var(--brand-on-navbar);
@@ -97,4 +100,28 @@
 #routes li a:focus {
   outline: 3px double var(--brand-on-navbar);
   outline-offset: -8px;
+}
+
+@media screen and (min-width: 750px) {
+
+  #routes {
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 50px;
+    gap: 0;
+  }
+
+  #routes li,
+  #routes a {
+    width: 180px;
+    height: inherit;
+    border: none;
+    margin: 0;
+  }
+
+  #routes li,
+  #routes li:last-child {
+    border: none;
+  }
 }

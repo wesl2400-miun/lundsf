@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO optimering -->
-    <meta name="description" content="Boka färdtjänst. Logga in säkert med lösenord, BankID eller FrejaID för att boka serviceresor inom Lunds kommun.">
-    <title>Boka färdtjänst - Logga in | Lunds Färdtjänst</title>
+    <meta name="description" content="Boka färdtjänst. Kontakta oss angående serviceresor inom Lunds kommun.">
+    <title>Kontakta oss - Ring och mejla oss vid frågor | Lunds Färdtjänst</title>
 
     <!-- Favoritikon -->
     <link rel="icon" href="./assets/favicon.svg">
@@ -18,8 +18,6 @@
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/headline.css">
     <link rel="stylesheet" href="./styles/card.css">
-    <link rel="stylesheet" href="./styles/prim-btn.css">
-    <link rel="stylesheet" href="./styles/login.css">
 
     <!-- Laddar teckensnitt från Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,6 +33,7 @@
         </a>
       </div>
 
+      <!-- Navigeringsfältet - aria-label är avsedd för blinda och ska läsas av skärmläsare -->
       <nav class="nav">
         <!-- Navigeringsmeny -->
         <div id="menu">
@@ -44,34 +43,38 @@
         </div>
 
         <!-- Navigeringsrutter -->
-        <ul id="routes">
-          <li class="route--selected"><a href="./index.html">Boka färdtjänst</a></li>
+        <ul id="routes" aria-label="Navigera till">
+          <li><a href="./index.html">Boka färdtjänst</a></li>
           <li><a href="./profile.html">Mina Sidor</a></li>
           <li><a href="./about.html">Om färdtjänst</a></li>
-          <li><a href="./contact.html">Kontakta oss</a></li>
+          <li class="route--selected" aria-current="page"><a href="./contact.html">Kontakta oss</a></li>
         </ul>
       </nav>
     </header>
 
     <!-- Huvudinnehåll -->
     <main id="main">
-      <h1 class="headline">Boka färdtjänst</h1>
+      <h1 class="headline">Mina sidor</h1>
 
-      <!-- Informationskort -->
       <section class="card">
-        <h2>Logga in</h2>
-        <p>Du måste logga in för att boka färdtjänst. Välj inloggningsmetod nedan.</p>
+        <h2>Kontaktuppgifter</h2>
+        <p>Du kan kontakta oss närsomhelst via e-post. Telefonsamtal tar vi emot mellan kl. 9.00-16.00</p>
+      </section>
+      
+      <section class="card">
+        <h3>E-post</h3>
+        <p>kundservice@lundsf.com</p>
       </section>
 
-      <!-- Grupperas för bästa tillgänglighet -->
-      <div class="login" role="group" aria-label="Välj inloggningsmetod nedan.">
-        <a class="prim-btn" href="./login.html">LÖSENORD</a>
-        <a class="prim-btn" href="./booking.html">BANKID</a>
-        <a class="prim-btn" href="./booking.html">FREJAID</a>
-      </div>
+      <section class="card">
+        <h3>Telefonnummer</h3>
+        <p>+46 777 777 777</p>
+      </section>
+      
     </main>
 
-    <!-- Kör logiken bakom den hopfällbara menyn -->
+     <!-- Kör logiken bakom den hopfällbara menyn -->
     <script type="module" defer src="./script/menu.js"></script>
+
   </body>
 </html>

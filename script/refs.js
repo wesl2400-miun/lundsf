@@ -1,4 +1,9 @@
 
+export const ICON = Object.freeze({
+  MENU_CLOSED: './assets/menu-closed.svg',
+  MENU_OPEN: './assets/menu-open.svg'
+});
+
 export const STORAGE = Object.freeze({
   TRIP: 'TRIP',
   TRIPS: 'TRIPS'
@@ -16,7 +21,7 @@ export const PATH = Object.freeze({
 });
 
 export const STR = Object.freeze({
-  BOOKING_H1: 'Boka Färdtjänst',
+  BOOKING_H1: 'Boka färdtjänst',
   BOOKING_TRIPS: 'Bokade resor', 
   BOOKING_LIST: 'Nedan finns resor som du redan har bokat.',
   BOOKING_EMPTY: 'Du har för närvarande inga bokade resor.',
@@ -28,10 +33,12 @@ export const STR = Object.freeze({
   DAY_INFO: 'Nedan finns tillgängliga dagar.',
   TIME_TITLE: 'Välj tid',
   TIME_INFO: 'Nedan finns tillgängliga tider.',
+  BTN_OK: 'OK',
   BTN_NEXT: 'NÄSTA',
   BTN_DEC: 'AVBRYT',
   BTN_CONF: 'BEKRÄFTA',
   BTN_PREV: 'TILLBAKA',
-  BTN_REMOVE_YES: 'JA, AVBOKA',
-  BTN_REMOVE_NO: 'NEJ, AVBRYT'
+  BTN_DIAG_REMOVE: 'JA, AVBOKA',
+  BTN_DIAG_CONFIRM: 'JA, BOKA',
+  BTN_DIAG_CANCEL: 'NEJ, AVBRYT'
 });

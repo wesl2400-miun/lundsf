@@ -1,9 +1,9 @@
 import { newBtn, newDiv } from './utils.js';
 
 export class Toolbar {
-  constructor(root, single) {
+  constructor(root, extStyle) {
     this._root = newDiv('toolbar', root);
-    if(single) this._root.classList.add(single);
+    if(extStyle) this._root.classList.add(extStyle);
   }
 
   wireActBtn = (actLab, nxtSite, act) => {

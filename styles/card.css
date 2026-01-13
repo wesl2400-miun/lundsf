@@ -38,3 +38,21 @@
   margin-bottom: 0.5rem;
 }
 
+.card .link {
+  width: inherit;
+  box-sizing: border-box;
+  display: block;
+  color: var(--brand-on-surface);
+}
+
+.card .link:focus {
+  outline: 3px double var(--brand-on-surface);
+  outline-offset: 2px;
+}
+
+.card .link:hover {
+  font-size: 20px;
+  font-style: italic;
+}
+
+

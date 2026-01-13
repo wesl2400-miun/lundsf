@@ -12,7 +12,7 @@
   padding: 0;
 }
 
-.dialog {
+#dialog {
   width: 280px;
   height: fit-content;
   display: flex;
@@ -23,12 +23,12 @@
   box-sizing: border-box;
 }
 
-.dialog p {
+#dialog p {
   margin: 1rem;
   text-align: center;
 }
 
-.dialog h1 {
+#dialog .headline {
   width:100%;
   height: 50px;
   display: flex;
@@ -42,7 +42,7 @@
   font-weight: 700;
 }
 
-.dialog .prim-btn, 
-.dialog .prim-var-btn {
+#dialog .prim-btn, 
+#dialog .prim-var-btn {
   width: 90%;
 }
