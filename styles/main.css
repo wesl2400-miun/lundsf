@@ -12,6 +12,19 @@
   box-sizing: border-box;
 }
 
+@media screen and (min-width: 600px) {
+
+  #main {
+    width: var(--main-w-tablet);
+  }
+}
+
+@media screen and (min-width: 900px) {
+
+  #main {
+    width: var(--main-w-desktop);
+  }
+}
 
 
 

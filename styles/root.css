@@ -29,6 +29,8 @@
   /** Dimensioner **/
   --full-vw: 100vw;
   --main-w-mobile: 90%;
+  --main-w-tablet: 70%;
+  --main-w-desktop: 40%;
 
   /** Teckensnitt **/
   font-family: "Encode Sans Semi Expanded", sans-serif;

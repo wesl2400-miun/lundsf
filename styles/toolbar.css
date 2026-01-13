@@ -18,11 +18,11 @@
 
 .toolbar .prim-btn, 
 .toolbar .prim-var-btn {
-  width: 100%;
+  width: 45%;
 }
 
 .single-choice .prim-btn {
-  width: 100%;
+  width: 90%;
 }
 
 .inside-dialog {
@@ -32,7 +32,26 @@
 }
 
 .inside-dialog .prim-btn {
-  width: 100%;
+  width: 90%;
 }
 
+@media screen and (min-width: 600px) {
+  .toolbar .prim-btn, 
+  .toolbar .prim-var-btn {
+    width: 40%;
+  }
+  .single-choice .prim-btn {
+    width: var(--main-w-tablet);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .toolbar .prim-btn, 
+  .toolbar .prim-var-btn {
+    width: 20%;
+  }
+  .single-choice .prim-btn {
+    width: var(--main-w-desktop);
+  }
+}
 

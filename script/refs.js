@@ -17,7 +17,9 @@ export const PATH = Object.freeze({
   OPTIONS: './options.html',
   DETAILS: './details.html',
   CONFIRMATION: './confirmation.html',
-  SUCCESS: './success.html'
+  SUCCESS: './success.html',
+  CHANGE: './change.html',
+  PROFILE: './profile.html'
 });
 
 export const STR = Object.freeze({
@@ -33,11 +35,13 @@ export const STR = Object.freeze({
   DAY_INFO: 'Nedan finns tillgängliga dagar.',
   TIME_TITLE: 'Välj tid',
   TIME_INFO: 'Nedan finns tillgängliga tider.',
+  BTN_CHANGE: 'ÄNDRA',
   BTN_OK: 'OK',
   BTN_NEXT: 'NÄSTA',
   BTN_DEC: 'AVBRYT',
   BTN_CONF: 'BEKRÄFTA',
   BTN_PREV: 'TILLBAKA',
+  BTN_DIAG_CHANGE: 'JA, ÄNDRA',
   BTN_DIAG_REMOVE: 'JA, AVBOKA',
   BTN_DIAG_CONFIRM: 'JA, BOKA',
   BTN_DIAG_CANCEL: 'NEJ, AVBRYT'
