@@ -18,6 +18,10 @@ export const newP = (text, root) => {
   return newTag('p', null, text, root);
 }
 
+export const newH1 = (text, root) => {
+  return newTag('h1', 'headline', text, root);
+}
+
 export const newH2 = (text, root) => {
   return newTag('h2', null, text, root);
 }

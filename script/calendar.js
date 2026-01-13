@@ -1,33 +1,106 @@
-import { newSec, newH2, newBtn, newP, newDiv } from './utils.js';
+import { CalCard } from './cal-card.js';
+import { PATH, STR } from './refs.js';
+import { Toolbar } from './toolbar.js';
+import { getTag, newH1 } from './utils.js';
 
-export class Calendar {
-  constructor(root, title, text) {
-    this._root = newSec(root);
-    newH2(title, this._root);
-    if(text) newP(text, this._root);
+class TimeView {
+  constructor(root) {
+    root.innerHTML = '';
+    newH1(STR.BOOKING_H1, root);
+    const card = new CalCard(
+      root,
+      STR.TIME_TITLE, 
+      STR.TIME_INFO
+    );
+    card.render(['09.30', '10.00', '10.30', 
+      '11.00', '13.30', '14.00', '14.30',
+      '15.00', '15.30', '16.00', '17.00', 
+      '17.30', '18.00', '18.30']);
+    this._wire(root);
   }
 
-  render(list, temp) {
-    const calendar = newDiv('calendar', this._root);
-    calendar.role = 'radiogroup';
-    this._btns = list.map(label => {
-      return this._btn(label, calendar, temp);
+  _wire = (root) =>  {
+    const tbar = new Toolbar(root);
+    tbar.wireActBtn(STR.BTN_NEXT, PATH.OPTIONS);
+    tbar.wireDecBtn(STR.BTN_PREV, null, () => {
+      new DayView(root);
     });
-  }
-
-  _btn = (label, calendar, temp) => {
-    const curnt = newBtn('calendar-btn', label, calendar);
-    curnt.role = 'radio';
-    curnt.id = label;
-    curnt.ariaChecked = false;
-    curnt.ariaLabel = label;
-    curnt.addEventListener('click', () => {
-      curnt.ariaChecked = true;
-      temp.value = label;
-      this._btns.forEach(btn => {
-        if(btn.id !== curnt.id) btn.ariaChecked = false;
-      });
-    });
-    return curnt;
   }
 }
+
+class DayView {
+  constructor(root) {
+    root.innerHTML = '';
+    newH1(STR.BOOKING_H1, root);
+    const card = new CalCard(
+      root,
+      STR.DAY_TITLE, 
+      STR.DAY_INFO
+    );
+    card.render(Array.from(
+      { length: 20}, (_, i) => i + 1));
+    this._wire(root);
+  }
+
+  _wire = (root) =>  {
+    const tbar = new Toolbar(root);
+    tbar.wireActBtn(STR.BTN_NEXT, null, () => {
+      new TimeView(root);
+    });
+    tbar.wireDecBtn(STR.BTN_PREV, null, () => {
+      new MonthView(root);
+    });
+  }
+}
+
+class MonthView {
+  constructor(root) {
+    root.innerHTML = '';
+    newH1(STR.BOOKING_H1, root);
+    const card = new CalCard(
+      root,STR.MONTH_TITLE);
+    card.render([
+      'Jan.', 'Feb.', 'Mar.', 'Apr.',
+      'Maj', 'Jun.', 'Jul.', 'Aug.', 
+      'Sep.', 'Okt.', 'Nov.', 'Dec.'
+    ]);
+    this._wire(root);
+  }
+
+  _wire = (root) =>  {
+    const tbar = new Toolbar(root);
+    tbar.wireActBtn(STR.BTN_NEXT, null, () => {
+      new DayView(root);
+    });
+    tbar.wireDecBtn(STR.BTN_PREV, null, () => {
+      new YearView(root);
+    });
+  }
+}
+
+class YearView {
+  constructor(root) {
+    root.innerHTML = '';
+    newH1(STR.BOOKING_H1, root);
+    const card = new CalCard(root, 
+      STR.YEAR_TITLE, STR.YEAR_INFO);
+    card.render(['2026', '2027']);
+    this._wire(root);
+  }
+
+  _wire = (root) =>  {
+    const tbar = new Toolbar(root);
+    tbar.wireActBtn(STR.BTN_NEXT, null, () => {
+      new MonthView(root);
+    });
+    tbar.wireDecBtn(STR.BTN_PREV, PATH.DESTINATION);
+  }
+}
+
+
+
+window.addEventListener('load', () => {
+  const main = getTag('main');
+  new YearView(main);
+
+});
