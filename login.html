@@ -12,7 +12,11 @@
     <link rel="icon" href="./assets/favicon.svg">
     
     <!-- Prestanda optimering -->
-    <link rel="preload" href="./script/views/menu.js" as="script">
+    <link rel="preload" href="./styles/root.css" as="style">
+    <link rel="modulepreload" href="./script/views/menu.js" as="script" crossorigin>
+
+    <!-- Kör logiken bakom den hopfällbara menyn -->
+    <script type="module" src="./script/views/menu.js"></script>
 
     <!-- Laddar CSS stilar -->
     <link rel="stylesheet" href="./styles/root.css">
@@ -69,14 +73,12 @@
 
       <!-- Inloggningsformuläret, aria-label avses för blinda personer och läses av lässkärmar -->
       <form class="form">
-        <input type="email" name="email" id="email" placeholder="E-post" aria-label="Ange din e-post">
-        <input type="password" name="password" id="password" placeholder="Lösenord" aria-label="Ange ditt lösenord">
+        <input autocomplete="on" type="email" name="email" id="email" placeholder="E-post" aria-label="Ange din e-post">
+        <input autocomplete="on" type="password" name="password" id="password" placeholder="Lösenord" aria-label="Ange ditt lösenord">
       </form>
       
       <a class="prim-btn" href="./booking.html">LOGGA IN</a>
     </main>
 
-    <!-- Kör logiken bakom den hopfällbara menyn -->
-    <script type="module" src="./script/views/menu.js"></script>
   </body>
 </html>

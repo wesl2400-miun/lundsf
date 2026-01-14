@@ -10,11 +10,6 @@
   box-sizing: border-box;
 }
 
-.logo a img {
-  width: fit-content;
-  height: 40px;
-}
-
 /** Se till att elementet kan kommas åt via assisterande teknik **/
 .logo a:focus {
   outline: 3px double var(--brand-on-surface);

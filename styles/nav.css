@@ -14,7 +14,7 @@
 #menu {
   width: 100%;
   height: 50px;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: end;
   flex-direction: column;
@@ -30,17 +30,12 @@
   align-items: center;
   flex-direction: column;
   cursor: pointer;
-
 }
 
 /** Se till att meny-knappen kan kommas åt via assisterande teknik **/
 #menu-btn:focus {
   outline: 4px double var(--brand-on-navbar);
   outline-offset: 3px;
-}
-
-#menu-btn img {
-  height: 40px;
 }
 
 /** Navigeringsrutter - Visas dynamiskt med JavaScript**/
@@ -104,7 +99,12 @@
 
 @media screen and (min-width: 750px) {
 
+  #menu {
+    display: none;
+  }
+
   #routes {
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;

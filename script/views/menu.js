@@ -12,7 +12,7 @@ const show = (tag) => {
 
 // Kör logiken för den hopfällbara menyn
 window.addEventListener('load', () => {
-
+  
   const menu = getTag('menu');
   const routes = getTag('routes');
   const main = getTag('main');
@@ -49,28 +49,23 @@ window.addEventListener('load', () => {
 
   // Visa menyraden
   const showMenu = () => {
-    open = true;
-    changIco(open);
     show(menu);
     hide(routes);
     show(main);
+    closed = true;
+    changIco();
   }
 
-  // Uppdatera UI-versionen baserat på skärmbredden
-  const updVers= () => {
-    if(window.innerWidth <= 750) {
+  // Kollar upp vilken plattform som är aktuell och anpassar navigerinsfältet därefter.
+  const onResize = (media) => {
+    if(media.matches) {
       showMenu();
-      closed = true;
-      changIco();
     } else {
-      hideMenu()
+      hideMenu();
+      console.log(event)
     }
   }
 
-  updVers();
-
-  // Uppdatera UI-versionen när skärmbdimensioner ändras
-  window.addEventListener('resize', () => {
-    updVers();
-  });
+  const media = window.matchMedia('(max-width: 750px)');
+  media.addEventListener('change', onResize);
 });
