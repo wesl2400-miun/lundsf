@@ -5,6 +5,7 @@ import { Trip } from '../data/trip.js';
 
 const trip = loadRec(STORAGE.CACHED_TRIP) || new Trip();
 
+// Generar dialogrutan för en utförd bokning
 window.addEventListener('load', () => {
   const main = getTag('dialog');
   const mess = getTag('dialog-msg');
@@ -12,6 +13,7 @@ window.addEventListener('load', () => {
   `${trip.name} ${trip.from} ${trip.to} ${trip.time} ${trip.repeat} ${trip.help}`;
   mess.textContent = info;
 
+  // Rensa den cachade resan när 'OK' knappen klickas
   const tbar = new Toolbar(main, 'inside-dialog');
   tbar.wireActBtn(STR.BTN_OK, PATH.BOOKING, () => {
     remRec(STORAGE.CACHED_TRIP);

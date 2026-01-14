@@ -1,4 +1,4 @@
-/** Applicerar stilen på inmatnings- och kryssrutor **/
+/** Applicerar stilen på inmatningsfält **/
 .form {
   width: 100%;
   display: flex;
@@ -36,7 +36,7 @@
   color: var(--brand-on-surface);
 }
 
-/** Se till att inmatnings- och kryssrutorna kan kommas åt via assisterande teknik **/
+/** Se till att inmatningsfält kan kommas åt via assisterande teknik **/
 .form input:focus {
   outline: 3px double var(--brand-on-surface);
   outline-offset: 2px;

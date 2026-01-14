@@ -1,5 +1,6 @@
 import { newSec, newH2, newBtn, newP, newDiv } from '../utils.js';
 
+// Skapar kalender kort
 export class CalCard {
   constructor(root, title, text) {
     this._root = newSec(root);
@@ -8,6 +9,7 @@ export class CalCard {
     this.boxes = [];
   }
 
+  // Generera knappar från string listan
   render(list) {
     const calendar = newDiv('calendar', this._root);
     calendar.role = 'radiogroup';
@@ -16,6 +18,7 @@ export class CalCard {
     });
   }
 
+  // Lägg till och aktivera knapparna så att de går att boka av
   _btn = (label, calendar) => {
     const curnt = newBtn('calendar-btn', label, calendar);
     curnt.role = 'radio';

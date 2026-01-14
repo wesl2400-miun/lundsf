@@ -6,6 +6,7 @@ import { Profile } from '../data/profile.js';
 
 const profile = loadRec(STORAGE.PROFILE) || new Profile();
 
+// Uppdatera profil sidan baserat på den cachade profilen från sessionStorage
 window.addEventListener('load', () => {
   const main = getTag('main');
   const fName = getTag('first-name');
@@ -14,12 +15,14 @@ window.addEventListener('load', () => {
   const code = getTag('code');
   const city = getTag('city');
 
+  // Uppdatera fält med den cachade profildatan
   fName.value = profile.fName;
   lName.value = profile.lName;
   street.value = profile.street;
   code.value = profile.code;
   city.value = profile.city;
 
+  // När 'Ändra' knappen klickas spara uppgifterna i sessionStorage som temporär data
   const tbar = new Toolbar(main, 'single-choice');
   tbar.wireActBtn(STR.BTN_CHANGE, PATH.CHANGE, () => {
      saveRec(STORAGE.CACHED_PROFILE, new Profile(

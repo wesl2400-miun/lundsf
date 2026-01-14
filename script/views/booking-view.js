@@ -4,13 +4,14 @@ import { Toolbar } from './toolbar.js';
 import { PATH, STR } from '../refs.js';
 import { getTag, newSec, newH2, newP, newH1 } from '../utils.js';
 
-
+// Genererar reslistan i form av kort
 class TripView {
   constructor(trips, main) {
     this._trips = trips;
     this.update(main);
   }
 
+  // Uppdatera listan
   update = (main) => {
     main.innerHTML = '';
     const list = this._trips.list;
@@ -27,6 +28,7 @@ class TripView {
     this._addTbar(main);
   }
 
+  // Informationskort
   _addInfo = (text, main) => {
     newH1('Boka färdtjänst', main);
     const card = newSec(main);
@@ -34,6 +36,7 @@ class TripView {
     newP(text, card);
   }
 
+  // Lägger till 'Boka ny resa' knappen
   _addTbar = (main) => {
     const tbar = new Toolbar(main, 'single-choice');
     tbar.wireActBtn(STR.BOOKING_NEW, PATH.DESTINATION);
@@ -42,6 +45,7 @@ class TripView {
 
 const trips = new Trips();
 
+// Skapa reslistan när DOM element laddas klart
 window.addEventListener('load', () => {
   new TripView(trips, getTag('main'));
 });

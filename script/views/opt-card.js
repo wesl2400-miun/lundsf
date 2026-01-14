@@ -1,17 +1,20 @@
 import { newDiv, newTag } from '../utils.js';
 
+// Skapar check-boxar dynamiskt
 export class OptCard {
   constructor(root) {
     this._root = root;
     this.boxes = [];
   }
   
+  // Skapa check-boxar från en lista
   addOpts = (type, name, opts) => {
     opts.forEach(opt => {
       this.boxes.push(this._addOpt(type, name, opt));
     });
   }
 
+  // Skapa en check-box
   _addOpt = (type, name, opt) => {
     const group = newDiv('check-opt', this._root);
     const curnt = newTag('input', 'check-btn', null, group);

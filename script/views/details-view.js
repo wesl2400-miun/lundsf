@@ -7,6 +7,7 @@ import { Trip } from '../data/trip.js';
 const profile = loadRec(STORAGE.PROFILE) || new Profile();
 const trip = loadRec(STORAGE.CACHED_TRIP) || new Trip();
 
+// Uppdatera 'Mina sidor' via den cachade profildata
 window.addEventListener('load', () => {
   const main = getTag('main');
   const fName = getTag('first-name');
@@ -15,12 +16,14 @@ window.addEventListener('load', () => {
   const code = getTag('code');
   const city = getTag('city');
   
+  // Uppdatera personuppgifter med den cachade profilen
   fName.value = profile.fName;
   lName.value = profile.lName;
   street.value = profile.street;
   code.value = profile.code;
   city.value = profile.city;
   
+  // Sätt upp händelseknapparna
   const tbar = new Toolbar(main);
   
   tbar.wireActBtn(STR.BTN_CONF, PATH.CONFIRMATION, () => {

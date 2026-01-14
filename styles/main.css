@@ -12,6 +12,7 @@
   box-sizing: border-box;
 }
 
+/** Anpassa main behållaren till surfplattan **/
 @media screen and (min-width: 600px) {
 
   #main {
@@ -19,6 +20,7 @@
   }
 }
 
+/** Anpassa main behållaren till datorn **/
 @media screen and (min-width: 900px) {
 
   #main {

@@ -4,6 +4,7 @@ import { Toolbar } from './toolbar.js';
 import { getTag, loadRec, newH1, saveRec } from '../utils.js';
 import { Trip } from '../data/trip.js';
 
+// Skapar kalender vyn för tider
 class TimeView {
   constructor(root) {
     root.innerHTML = '';
@@ -20,6 +21,7 @@ class TimeView {
     this._wire(root);
   }
 
+  // Sätt upp 'Nästa' och 'Tillbaka' knapparna
   _wire = (root) =>  {
     const tbar = new Toolbar(root);
     tbar.wireActBtn(STR.BTN_NEXT, PATH.OPTIONS, () => {
@@ -37,6 +39,7 @@ class TimeView {
   }
 }
 
+// Skapa kalendervyn för dag
 class DayView {
   constructor(root) {
     root.innerHTML = '';
@@ -51,6 +54,8 @@ class DayView {
     this._wire(root);
   }
 
+  
+  // Sätt upp 'Nästa' och 'Tillbaka' knapparna
   _wire = (root) =>  {
     const tbar = new Toolbar(root);
     tbar.wireActBtn(STR.BTN_NEXT, null, () => {
@@ -69,6 +74,7 @@ class DayView {
   }
 }
 
+// Skapa kalendervyn för månad
 class MonthView {
   constructor(root) {
     root.innerHTML = '';
@@ -82,7 +88,8 @@ class MonthView {
     ]);
     this._wire(root);
   }
-
+  
+  // Sätt upp 'Nästa' och 'Tillbaka' knapparna
   _wire = (root) =>  {
     const tbar = new Toolbar(root);
     tbar.wireActBtn(STR.BTN_NEXT, null, () => {
@@ -101,6 +108,7 @@ class MonthView {
   }
 }
 
+// Skapa kalender vyn för år
 class YearView {
   constructor(root) {
     root.innerHTML = '';
@@ -111,6 +119,8 @@ class YearView {
     this._wire(root);
   }
 
+  
+  // Sätt upp 'Nästa' och 'Tillbaka' knapparna
   _wire = (root) =>  {
     const tbar = new Toolbar(root);
     tbar.wireActBtn(STR.BTN_NEXT, null, () => {
@@ -130,6 +140,7 @@ class YearView {
 const params = new URLSearchParams(window.location.search);
 const view = params.get('view');
 
+// Skapa lämplig vy baserat på typen som överförs mellan sidorna via parametrar
 window.addEventListener('load', () => {
   const main = getTag('main');
   if(view) new DayView(main);

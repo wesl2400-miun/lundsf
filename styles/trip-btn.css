@@ -1,3 +1,4 @@
+/** Gäller de små gröna knappar som visas för reskort **/
 .trip-btns {
   width: 100%;
   display: flex;
@@ -27,6 +28,7 @@
   user-select: none;
 }
 
+/** Anpassa stilen på knapparna efter deras aktuella tillstånd **/
 .trip-btn:focus {
   outline: 3px double var(--brand-on-surface);
   outline-offset: 2px;

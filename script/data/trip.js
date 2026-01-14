@@ -1,4 +1,5 @@
 
+// Modelklassen för resan
 export class Trip {
   constructor(name, from, to, time, repeat, help) {
     this.name = name || '';

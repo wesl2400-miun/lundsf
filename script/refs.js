@@ -1,9 +1,11 @@
 
+// Referenser till projektets ikoner
 export const ICON = Object.freeze({
   MENU_CLOSED: './assets/menu-closed.svg',
   MENU_OPEN: './assets/menu-open.svg'
 });
 
+// Refererar till data som sparas i sessionStorage
 export const STORAGE = Object.freeze({
   CACHED_TRIP: 'CACHED_TRIP',
   CACHED_PROFILE: 'CACHED_PROFILE',
@@ -11,6 +13,7 @@ export const STORAGE = Object.freeze({
   TRIPS: 'TRIPS'
 });
 
+// Referar till alla undersior
 export const PATH = Object.freeze({
   REMOVE: './remove.html',
   BOOKING: './booking.html',
@@ -24,6 +27,7 @@ export const PATH = Object.freeze({
   PROFILE: './profile.html'
 });
 
+// Refererar till visa texter som är synliga som kort och knappar
 export const STR = Object.freeze({
   BOOKING_H1: 'Boka färdtjänst',
   BOOKING_TRIPS: 'Bokade resor', 

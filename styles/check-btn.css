@@ -1,4 +1,4 @@
-
+/** Aplicerar stil på krysrutor av typen check-box och radio **/
 .check-btns {
   width: 100%;
   display: flex;
@@ -10,6 +10,7 @@
   margin-bottom: 1rem;
 }
 
+/** Ta bort stilen från fieldset och anpassa det efter designen **/
 .check-btns fieldset {
   width: inherit;
   border: none;
@@ -55,6 +56,7 @@
   user-select: none;
 }
 
+/** Ändra stilen för kryssrutor beroende på deras tillstånd **/
 .check-btn:focus {
   outline: 3px double var(--brand-on-surface);
   outline-offset: 2px;

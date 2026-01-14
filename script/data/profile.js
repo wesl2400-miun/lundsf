@@ -1,4 +1,5 @@
 
+// Modelklassen för användarprofilen
 export class Profile {
   constructor(fName, lName, street, code, city) {
     this.fName = fName || '';

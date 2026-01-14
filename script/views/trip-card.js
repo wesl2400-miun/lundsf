@@ -1,6 +1,7 @@
 import { newSec, newH2, newH3, newP, newBtn, newDiv, saveRec } from '../utils.js';
 import { PATH, STORAGE } from '../refs.js';
 
+// Generar kort för resan
 export class TripCard {
   constructor(trip, root) {
     this._main = root;
@@ -12,6 +13,7 @@ export class TripCard {
     this._btns = newDiv('trip-btns', this._root);
   }
 
+  // Lägg till 'Avboka' knappen
   addRemBtn = (index) => {
     const remBtn = newBtn('trip-btn', 'Avboka', this._btns);
     remBtn.addEventListener('click', () => {
@@ -19,10 +21,12 @@ export class TripCard {
     });
   }
 
+  // Lägg till ändra knappen
   addModBtn = (index) => {
     const modBtn = newBtn('trip-btn', 'Ändra', this._btns);
     modBtn.addEventListener('click', () => {
       saveRec(STORAGE.CURRENT_TRIP, index);
+      window.location.href = PATH.DESTINATION;
     });
   }
 }

@@ -3,6 +3,7 @@ import { PATH, STORAGE, STR } from '../refs.js';
 import { Toolbar } from './toolbar.js';
 import { Trip } from '../data/trip.js';
 
+// Sparar information från 'Välj destination' undersidan i sessionStorage
 window.addEventListener('load', () => {
   const main = getTag('main');
   
@@ -16,6 +17,8 @@ window.addEventListener('load', () => {
     trip.to = `${street.value}, ${code.value}, ${city.value}`;
     saveRec(STORAGE.CACHED_TRIP, trip);
   });
+
+  // Ta bort den cachade resan från sessionStorage
   tbar.wireDecBtn(STR.BTN_DEC, PATH.BOOKING, () => {
     remRec(STORAGE.CACHED_TRIP);
   });

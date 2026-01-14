@@ -35,6 +35,7 @@
   width: 90%;
 }
 
+/** Anpassa handlingsknappar till surfplattan **/
 @media screen and (min-width: 600px) {
   .toolbar .prim-btn, 
   .toolbar .prim-var-btn {
@@ -45,6 +46,7 @@
   }
 }
 
+/** Anpassa handlingsknappar till datorn **/
 @media screen and (min-width: 900px) {
   .toolbar .prim-btn, 
   .toolbar .prim-var-btn {
