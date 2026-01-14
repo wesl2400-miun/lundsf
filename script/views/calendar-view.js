@@ -118,7 +118,6 @@ class YearView {
     this._card.render(['2026', '2027']);
     this._wire(root);
   }
-
   
   // Sätt upp 'Nästa' och 'Tillbaka' knapparna
   _wire = (root) =>  {
