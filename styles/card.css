@@ -40,6 +40,7 @@
 
 .card .link {
   width: inherit;
+  text-decoration: underline;
 }
 
 
