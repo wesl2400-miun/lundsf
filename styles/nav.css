@@ -69,7 +69,8 @@
 
 #routes li a, 
 #routes li a:link, 
-#routes li a:active {
+#routes li a:active,
+#routes li a:visited {
   text-decoration: none;
   width: inherit;
   height: inherit;
@@ -112,8 +113,7 @@
     gap: 0;
   }
 
-  #routes li,
-  #routes a {
+  #routes li {
     width: 180px;
     height: inherit;
     border: none;

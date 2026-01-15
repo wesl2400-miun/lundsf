@@ -43,8 +43,8 @@
         </a>
       </div>
 
-      <!-- Navigeringsfältet - aria-label är avsedd för blinda och ska läsas av skärmläsare -->
-      <nav class="nav">
+      <!-- Aria-label är avsedd för blinda och ska läsas av skärmläsare, aria-live meddelar när menyn öppnas -->
+      <nav class="nav" aria-live="polite">
         <!-- Navigeringsmeny -->
         <div id="menu">
           <button id="menu-btn" aria-label="Öppna menyn">
@@ -95,6 +95,8 @@
       </div>
       
     </main>
+
+    <footer><a class="link" href="./accessibility.html">Tillgänglighetsredogörelsen</a></footer>
 
     <!-- Kör logiken bakom inmatningsfälten -->
     <script type="module" src="./script/views/profile-view.js"></script>

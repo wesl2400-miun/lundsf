@@ -53,7 +53,7 @@ body {
 }
 
 /** Gör header taggen responsiv **/
-header {
+header, footer {
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -63,3 +63,31 @@ header {
   margin: 0;
   padding: 0;
 }
+
+/** Stil för sidfot **/
+footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  height: fit-content;
+  padding: 1rem 0;
+  text-align: center;
+  background-color: var(--brand-background);
+}
+
+/** Stil för länkar **/
+.link {
+  color: var(--brand-on-surface);
+}
+
+.link:focus {
+  outline: 3px double var(--brand-on-surface);
+  outline-offset: 2px;
+}
+
+.link:hover {
+  font-size: 20px;
+  font-style: italic;
+}
+

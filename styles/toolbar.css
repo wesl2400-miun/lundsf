@@ -1,7 +1,7 @@
 /** Denna behållare ska se till att knappar fortsätter att vara synliga även om innehållet scrollas. **/
 .toolbar {
   width: 100%;
-  bottom: 0;
+  bottom: 50px;
   left: 0;
   right: 0;
   position: fixed;

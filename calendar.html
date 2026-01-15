@@ -43,8 +43,8 @@
         </a>
       </div>
 
-      <!-- Navigeringsfältet - aria-label är avsedd för blinda och ska läsas av skärmläsare -->
-      <nav class="nav">
+      <!-- Aria-label är avsedd för blinda och ska läsas av skärmläsare, aria-live meddelar när menyn öppnas -->
+      <nav class="nav" aria-live="polite">
         <!-- Navigeringsmeny -->
         <div id="menu">
           <button id="menu-btn" aria-label="Öppna menyn">
@@ -63,12 +63,14 @@
     </header>
 
     <!-- Huvudinnehåll -->
-    <main id="main">
+    <main id="main" aria-live="polite">
       <h1 class="headline">Boka färdtjänst</h1>
 
       <!-- Innehållet genereras dynamiskt via calendar.js skript -->
 
     </main>
+
+    <footer><a class="link" href="./accessibility.html">Tillgänglighetsredogörelsen</a></footer>
 
     <script type="module" src="./script/views/calendar-view.js"></script>
   </body>

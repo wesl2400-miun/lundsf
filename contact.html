@@ -39,8 +39,8 @@
         </a>
       </div>
 
-      <!-- Navigeringsfältet - aria-label är avsedd för blinda och ska läsas av skärmläsare -->
-      <nav class="nav">
+      <!-- Aria-label är avsedd för blinda och ska läsas av skärmläsare, aria-live meddelar när menyn öppnas -->
+      <nav class="nav" aria-live="polite">
         <!-- Navigeringsmeny -->
         <div id="menu">
           <button id="menu-btn" aria-label="Öppna menyn">
@@ -78,6 +78,8 @@
       </section>
       
     </main>
+
+    <footer><a class="link" href="./accessibility.html">Tillgänglighetsredogörelsen</a></footer>
 
     <!-- Kör logiken bakom den hopfällbara menyn -->
     <script type="module" src="./script/views/menu.js"></script>

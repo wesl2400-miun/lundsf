@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO optimering -->
-    <meta name="description" content="Boka färdtjänst. Bekräfta dina perosnuppgifter och boka en serviceresa inom Lunds kommun.">
-    <title>Boka färdtjänst - Bekräfta dina personuppgifter | Lunds Färdtjänst</title>
+    <meta name="description" content="Boka färdtjänst. Läs om hur vi jobbar med webbtillgängligheten.">
+    <title>Tillgänglighetsredogörelsen | Lunds Färdtjänst</title>
 
     <!-- Favoritikon -->
     <link rel="icon" href="./assets/favicon.svg">
@@ -24,10 +24,6 @@
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/headline.css">
     <link rel="stylesheet" href="./styles/card.css">
-    <link rel="stylesheet" href="./styles/toolbar.css">
-    <link rel="stylesheet" href="./styles/prim-btn.css">
-    <link rel="stylesheet" href="./styles/prim-var-btn.css">
-    <link rel="stylesheet" href="./styles/form.css">
 
     <!-- Laddar teckensnitt från Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,9 +50,9 @@
 
         <!-- Navigeringsrutter -->
         <ul id="routes" aria-label="Navigera till">
-          <li class="route--selected" aria-current="page"><a href="./index.html">Boka färdtjänst</a></li>
+          <li><a href="./index.html">Boka färdtjänst</a></li>
           <li><a href="./profile.html">Mina Sidor</a></li>
-          <li><a href="./about.html">Om färdtjänst</a></li>
+          <li class="route--selected" aria-current="page"><a href="./about.html">Om färdtjänst</a></li>
           <li><a href="./contact.html">Kontakta oss</a></li>
         </ul>
       </nav>
@@ -64,36 +60,24 @@
 
     <!-- Huvudinnehåll -->
     <main id="main">
-      <h1 class="headline">Boka färdtjänst</h1>
+      <h1 class="headline">Tillgänglighet</h1>
+
+      <section class="card">
+        <h2>Lunds färdtjänst</h2>
+        <p>Denna tillgänglighetsredogörelse gäller webbplatsen för Lunds färdtjänst som hanteras av Lunds kommun och redogör för hur webbplatsen uppfyller lagen om tillgänglighet till digital offentlig service.</p>
+      </section>
       
-      <div class="card">
-        <form class="form">
-          <fieldset>
-            <legend>Dina uppgifter</legend>
-
-            <label for="first-name" class="label">Förnamn</label>
-            <input autocomplete="on" id="first-name" name="details" type="text" maxlength="25">
-
-            <label for="last-name" class="label">Efternamn</label>
-            <input autocomplete="on" id="last-name" name="details" type="text" maxlength="25">
-
-            <label for="street" class="label">Gatuadress</label>
-            <input autocomplete="on" id="street" name="details" type="text" maxlength="25">
-
-            <label for="code" class="label">Postnummer</label>
-            <input autocomplete="on" id="code" name="details" type="text" maxlength="25">
-
-            <label for="city" class="label">Postort</label>
-            <input autocomplete="on" id="city" name="details" type="text" maxlength="25">
-          </fieldset>
-        </form>
-      </div>
+      <section class="card">
+        <h2>[Att göra]</h2>
+        <p></p>
+      </section>
       
+      <section class="card">
+        <h2>[Att göra]</h2>
+        <p></p>
+      </section>
     </main>
-
+  
     <footer><a class="link" href="./accessibility.html">Tillgänglighetsredogörelsen</a></footer>
-
-    <!-- Kör logiken bakom inmatningsfälten -->
-    <script type="module" src="./script/views/details-view.js"></script>
   </body>
 </html>
