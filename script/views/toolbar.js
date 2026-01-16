@@ -1,27 +1,19 @@
-import { newBtn, newDiv } from '../utils.js';
+import { getTag } from '../utils.js';
 
-// Genererar dessa handlingsknappar - det är dessa stora mörka knappar
+// Genererar de stora mörka handlingsknappar som ligger ovanför Tillgänglighetsredogörelsen-lönken
 export class Toolbar {
-  constructor(root, extStyle) {
-    this._root = newDiv('toolbar', root);
-    if(extStyle) this._root.classList.add(extStyle);
+  constructor(actId, decId) {
+    this._actBtn = getTag(actId);
+    if(decId) this._decBtn = getTag(decId);
   }
-
-  // Lyssna till bekräftande  händelser
-  wireActBtn = (actLab, nxtSite, act) => {
-    const actBtn = newBtn('prim-btn', actLab, this._root);
-    actBtn.addEventListener('click', () => {
-      if(act) act();
-      if(nxtSite) window.location.href = nxtSite;
-    });
+  
+  // Lyssna till bekräftande händelser
+  wireActBtn = (act) => {
+    this._actBtn.addEventListener('click', act);
   }
 
   // Lyssna till avbrytande händelser
-  wireDecBtn = (decLab, prevSite, dec) => {
-    const decBtn = newBtn('prim-var-btn', decLab, this._root);
-    decBtn.addEventListener('click', () => {
-      if(dec) dec();
-      if(prevSite) window.location.href = prevSite;
-    });
+  wireDecBtn = (dec) => {
+    this._decBtn.addEventListener('click', dec);
   }
 }

@@ -1,0 +1,6 @@
+#view-holder {
+  width: inherit;
+  margin: 0;
+  width: 0;
+  box-sizing: border-box;
+}

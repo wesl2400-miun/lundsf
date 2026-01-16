@@ -1,147 +1,62 @@
-import { CalCard } from './cal-card.js';
-import { PATH, STORAGE, STR } from '../refs.js';
+import { DayCard, MonthCard, TimeCard, YearCard } from './cal-card.js';
+import { PATH, STORAGE, STR, CALENDAR } from '../refs.js';
 import { Toolbar } from './toolbar.js';
-import { getTag, loadRec, newH1, saveRec } from '../utils.js';
+import { getTag, tagBy, loadRec, saveRec } from '../utils.js';
 import { Trip } from '../data/trip.js';
 
-// Skapar kalender vyn för tider
-class TimeView {
-  constructor(root) {
-    root.innerHTML = '';
-    newH1(STR.BOOKING_H1, root);
-    this._card = new CalCard(
-      root,
-      STR.TIME_TITLE, 
-      STR.TIME_INFO
-    );
-    this._card.render(['09.30', '10.00', '10.30', 
-      '11.00', '13.30', '14.00', '14.30',
-      '15.00', '15.30', '16.00', '17.00', 
-      '17.30', '18.00', '18.30']);
-    this._wire(root);
-  }
-
-  // Sätt upp 'Nästa' och 'Tillbaka' knapparna
-  _wire = (root) =>  {
-    const tbar = new Toolbar(root);
-    tbar.wireActBtn(STR.BTN_NEXT, PATH.OPTIONS, () => {
-      this._card.boxes.forEach(box => {
-        if(box.ariaChecked === 'true') {
-          const trip = loadRec(STORAGE.CACHED_TRIP) || new Trip();
-          trip.time += 'kl.' + box.value;
-          saveRec(STORAGE.CACHED_TRIP, trip);
-        }
-      });
-    });
-    tbar.wireDecBtn(STR.BTN_PREV, null, () => {
-      new DayView(root);
-    });
-  }
-}
-
-// Skapa kalendervyn för dag
-class DayView {
-  constructor(root) {
-    root.innerHTML = '';
-    newH1(STR.BOOKING_H1, root);
-    this._card = new CalCard(
-      root,
-      STR.DAY_TITLE, 
-      STR.DAY_INFO
-    );
-    this._card.render(Array.from(
-      { length: 20}, (_, i) => i + 1));
-    this._wire(root);
-  }
-
-  
-  // Sätt upp 'Nästa' och 'Tillbaka' knapparna
-  _wire = (root) =>  {
-    const tbar = new Toolbar(root);
-    tbar.wireActBtn(STR.BTN_NEXT, null, () => {
-      this._card.boxes.forEach(box => {
-        if(box.ariaChecked === 'true') {
-          const trip = loadRec(STORAGE.CACHED_TRIP) || new Trip();
-          trip.time += box.value + ', ';
-          saveRec(STORAGE.CACHED_TRIP, trip);
-        }
-      });
-      new TimeView(root);
-    });
-    tbar.wireDecBtn(STR.BTN_PREV, null, () => {
-      new MonthView(root);
-    });
-  }
-}
-
-// Skapa kalendervyn för månad
-class MonthView {
-  constructor(root) {
-    root.innerHTML = '';
-    newH1(STR.BOOKING_H1, root);
-    this._card = new CalCard(
-      root,STR.MONTH_TITLE);
-    this._card.render([
-      'Jan.', 'Feb.', 'Mar.', 'Apr.',
-      'Maj', 'Jun.', 'Jul.', 'Aug.', 
-      'Sep.', 'Okt.', 'Nov.', 'Dec.'
-    ]);
-    this._wire(root);
-  }
-  
-  // Sätt upp 'Nästa' och 'Tillbaka' knapparna
-  _wire = (root) =>  {
-    const tbar = new Toolbar(root);
-    tbar.wireActBtn(STR.BTN_NEXT, null, () => {
-       this._card.boxes.forEach(box => {
-        if(box.ariaChecked === 'true') {
-          const trip = loadRec(STORAGE.CACHED_TRIP) || new Trip();
-          trip.time += box.value + ' ';
-          saveRec(STORAGE.CACHED_TRIP, trip);
-        }
-      });
-     new DayView(root);
-    });
-    tbar.wireDecBtn(STR.BTN_PREV, null, () => {
-      new YearView(root);
-    });
-  }
-}
-
-// Skapa kalender vyn för år
-class YearView {
-  constructor(root) {
-    root.innerHTML = '';
-    newH1(STR.BOOKING_H1, root);
-    this._card = new CalCard(root, 
-      STR.YEAR_TITLE, STR.YEAR_INFO);
-    this._card.render(['2026', '2027']);
-    this._wire(root);
-  }
-  
-  // Sätt upp 'Nästa' och 'Tillbaka' knapparna
-  _wire = (root) =>  {
-    const tbar = new Toolbar(root);
-    tbar.wireActBtn(STR.BTN_NEXT, null, () => {
-      this._card.boxes.forEach(box => {
-        if(box.ariaChecked === 'true') {
-          const trip = loadRec(STORAGE.CACHED_TRIP) || new Trip();
-          trip.time += box.value + ' ';
-          saveRec(STORAGE.CACHED_TRIP, trip);
-        }
-      });
-      new MonthView(root);
-    });
-    tbar.wireDecBtn(STR.BTN_PREV, PATH.DESTINATION);
-  }
-}
-
-const params = new URLSearchParams(window.location.search);
-const view = params.get('view');
-
-// Skapa lämplig vy baserat på typen som överförs mellan sidorna via parametrar
+// Hanterar logiken bakom calendar.html sidan
 window.addEventListener('load', () => {
-  const main = getTag('main');
-  if(view) new DayView(main);
-  else new YearView(main);
+  const params = new URLSearchParams(window.location.search);
+  const back = params.get('back');
+  const vHolder = getTag('view-holder');
+  const tbar = new Toolbar('act-btn', 'dec-btn');
+
+  const flow = [
+    () => new YearCard(vHolder),
+    () => new MonthCard(vHolder),
+    () => new DayCard(vHolder),
+    () => new TimeCard(vHolder),
+  ];
+
+  let time = [];
+  const max = flow.length;
+  const last = max - 1;
+
+  let index = back? last : 0;
+  flow[index]();
+
+  // Spara de markerade knapparnas textinnehåll i en temporär array
+  const save = () => {
+    const checked = tagBy('button[aria-checked="true"]');
+    if(checked) time.push(checked.value);
+  }
+
+  // Visa nästa vyn
+  const next = () => {
+    index++;
+    if(index === max) {
+      save();
+      const data = encodeURIComponent(time.join(' '));
+      window.location.href = `${PATH.OPTIONS}?data=${data}`;
+    } else {
+      save();
+      flow[index]();
+    }
+    console.log(time)
+  }
+
+  // Visa föregående vyn
+  const prev = () => {
+    index--;
+    if(index < 0)
+      window.location.href = PATH.BOOKING;
+    else {
+      time.pop();
+      flow[index]();
+    }
+  }
+
+  // Lyssna efter 'Nästa' och 'Tillbaka' händelser
+  tbar.wireActBtn(next);
+  tbar.wireDecBtn(prev);
 });

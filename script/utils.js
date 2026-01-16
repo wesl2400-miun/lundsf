@@ -63,3 +63,11 @@ export const saveRec = (key, record) => {
 export const remRec = (key) => {
   sessionStorage.removeItem(key);
 }
+
+export const tagBy = (tagSpec) => {
+  return document.querySelector(`${tagSpec}`);
+}
+
+export const tagsBy = (tagSpec) => {
+  return document.querySelectorAll(`${tagSpec}`);
+}

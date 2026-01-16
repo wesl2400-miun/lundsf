@@ -69,20 +69,50 @@
       <div class="card">
 
         <form class="check-btns">
-          <fieldset id="trip-opts">
+          <fieldset>
             <legend>Är resa återkommande?</legend>
 
-            <!-- Genereas dynamiskt via options-view.js skript -->
+            <div class="check-opt">
+              <input id="no" class="check-btn" type="radio" name="repeat" value="Nej">
+              <label for="no">Nej</label>
+            </div>
 
+            <div class="check-opt">
+              <input id="each-week" class="check-btn" type="radio" name="repeat" value="Varje vecka">
+              <label for="each-week">Varje vecka</label>
+            </div>
+
+            <div class="check-opt">
+              <input id="every-second-week" class="check-btn" type="radio" name="repeat" value="Varannan vecka">
+              <label for="every-second-week">Varannan vecka</label>
+            </div>
+
+            <div class="check-opt">
+              <input id="each-month" class="check-btn" type="radio" name="repeat" value="Varje månad">
+              <label for="each-month">Varje månad</label>
+            </div>
           </fieldset>
 
-          <fieldset id="help-opts">
+          <fieldset>
             <legend>Övrigt</legend>
 
-            <!-- Genereas dynamiskt via options-view.js skript -->
+            <div class="check-opt">
+              <input id="wheelchair" class="check-btn" type="checkbox" name="help" value="Jag har rullstol">
+              <label for="wheelchair">Jag har rullstol</label>
+            </div>
+
+            <div class="check-opt">
+              <input id="dog" class="check-btn" type="checkbox" name="help" value="Jag har ledarhund">
+              <label for="dog">Jag har ledarhund</label>
+            </div>
             
           </fieldset>
         </form>
+      </div>
+
+      <div class="toolbar">
+        <button class="prim-btn" id="act-btn">Nästa</button>
+        <button class="prim-var-btn" id="dec-btn">Tillbaka</button>
       </div>
 
     </main>

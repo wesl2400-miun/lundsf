@@ -25,7 +25,6 @@ class TripView {
     } else {
       this._addInfo(STR.BOOKING_EMPTY, main);
     }
-    this._addTbar(main);
   }
 
   // Informationskort
@@ -35,17 +34,11 @@ class TripView {
     newH2(STR.BOOKING_TRIPS, card);
     newP(text, card);
   }
-
-  // Lägger till 'Boka ny resa' knappen
-  _addTbar = (main) => {
-    const tbar = new Toolbar(main, 'single-choice');
-    tbar.wireActBtn(STR.BOOKING_NEW, PATH.DESTINATION);
-  }
 }
 
 const trips = new Trips();
 
 // Skapa reslistan när DOM element laddas klart
 window.addEventListener('load', () => {
-  new TripView(trips, getTag('main'));
+  // new TripView(trips, getTag('view-holder'));
 });

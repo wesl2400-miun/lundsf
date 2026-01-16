@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="./styles/prim-btn.css">
     <link rel="stylesheet" href="./styles/prim-var-btn.css">
     <link rel="stylesheet" href="./styles/calendar.css">
+    <link rel="styles" href="./styles/view-holder.css">
 
     <!-- Laddar teckensnitt från Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,11 +64,17 @@
     </header>
 
     <!-- Huvudinnehåll -->
-    <main id="main" aria-live="polite">
+    <main id="main">
       <h1 class="headline">Boka färdtjänst</h1>
 
-      <!-- Innehållet genereras dynamiskt via calendar.js skript -->
+      <section id="view-holder" class="card" aria-live="polite">
+        <!-- Kalenderknappar genereras dynamiskt via calendar.js skript -->
+      </section>
 
+      <div class="toolbar">
+        <button class="prim-btn" id="act-btn">Nästa</button>
+        <button class="prim-var-btn" id="dec-btn">Tillbaka</button>
+      </div>
     </main>
 
     <footer><a class="link" href="./accessibility.html">Tillgänglighetsredogörelsen</a></footer>

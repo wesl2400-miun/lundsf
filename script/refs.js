@@ -52,3 +52,10 @@ export const STR = Object.freeze({
   BTN_DIAG_CONFIRM: 'JA, BOKA',
   BTN_DIAG_CANCEL: 'NEJ, AVBRYT'
 });
+
+export const CALENDAR = Object.freeze({
+  YEAR: 'year',
+  MONTH: 'month',
+  DAY: 'day',
+  TIME: 'time'
+});
