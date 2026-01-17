@@ -11,15 +11,16 @@ window.addEventListener('load', () => {
   const code = getTag('code');
   const city = getTag('city');
 
-  const tbar = new Toolbar(main);
-  tbar.wireActBtn(STR.BTN_NEXT, PATH.CALENDAR, () => {
-    const trip = loadRec(STORAGE.CACHED_TRIP) || new Trip();
-    trip.to = `${street.value}, ${code.value}, ${city.value}`;
-    saveRec(STORAGE.CACHED_TRIP, trip);
-  });
-
-  // Ta bort den cachade resan från sessionStorage
-  tbar.wireDecBtn(STR.BTN_DEC, PATH.BOOKING, () => {
-    remRec(STORAGE.CACHED_TRIP);
-  });
+  const tbar = new Toolbar('act-btn', 'dec-btn');
+  
+  const next = () => {
+      window.location.href = PATH.CALENDAR;
+  }
+  
+  const prev = () => {
+   window.location.href = PATH.BOOKING;
+  }
+    
+  tbar.wireActBtn(next);
+  tbar.wireDecBtn(prev);
 });

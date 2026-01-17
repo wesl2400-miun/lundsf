@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
   const tbar = new Toolbar('act-btn', 'dec-btn');
   
   const next = () => {
-    window.location.href = PATH.BOOKING;
+    window.location.href = PATH.SUCCESS;
   }
   
   const prev = () => {

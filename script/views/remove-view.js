@@ -14,16 +14,17 @@ const { name, from, to , date, opts } = current;
 
 // Genererar dialogrutan för avbokningar av resor
 window.addEventListener('load', () => {
-  const main = getTag('dialog');
-  const mess = getTag('dialog-msg');
-  const info = 'Är du säker på att du vill avboka denna resa? ' + name +
-    '. Från: '+ from + '. Till: ' + to + '. Datum: ' + date + '. Övrigt: ' + opts; 
-  mess.textContent = info;
-
-  // Avboka resan när bekräftelse knappen klickas
-  const tbar = new Toolbar(main, 'inside-dialog');
-  tbar.wireActBtn(STR.BTN_DIAG_REMOVE, PATH.BOOKING, () => {
-     trips.remTrip(index);
-  });
-  tbar.wireDecBtn(STR.BTN_DIAG_CANCEL, PATH.BOOKING);
+  
+  const tbar = new Toolbar('act-btn', 'dec-btn');
+  
+  const next = () => {
+      
+  }
+  
+  const prev = () => {
+   
+  }
+    
+  tbar.wireActBtn(next);
+  tbar.wireDecBtn(prev);
 });

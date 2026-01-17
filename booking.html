@@ -64,7 +64,14 @@
     <!-- Huvudinnehåll -->
     <main id="main">
 
-      <!-- Innehållet genereras dynamiskt via booking-view.js skript -->
+      <section class="card">
+        <h2>Bokade resor</h2>
+        <p>Nedan finns resor som du redan har bokat.</p>
+      </section>
+
+      <div id="view-holder" aria-live="polite">
+        <!-- Reslistan genereras dynamiskt via bokking-view.js skript -->
+      </div>
       
       <div class="toolbar single-choice">
         <button class="prim-btn" id="act-btn">BOKA NY RESA</button>

@@ -11,12 +11,6 @@
     <!-- Favoritikon -->
     <link rel="icon" href="./assets/favicon.svg">
 
-    <!-- Prestanda optimering -->
-    <link rel="modulepreload" href="./script/views/menu.js" as="script" crossorigin>
-
-    <!-- Kör logiken bakom den hopfällbara menyn -->
-    <script type="module" src="./script/views/menu.js"></script>
-
     <!-- Laddar CSS stilar -->
     <link rel="stylesheet" href="./styles/root.css">
     <link rel="stylesheet" href="./styles/main.css">
@@ -37,6 +31,10 @@
     <main id="dialog">
       <h1 class="headline">Är du säker?</h1>
       <p id="dialog-msg">Är du säker på att du vill ändra dina personuppgifter? Du kommer inte kunna ångra detta sedan.</p>
+      <div class="toolbar inside-dialog">
+        <button class="prim-btn" id="act-btn">JA, ÄNDRA</button>
+        <button class="prim-var-btn" id="dec-btn">NEJ, AVBRYT</button>
+      </div>
     </main>
 
     <!-- Kör logiken för 'Ändra personuppgifter'-funktionen -->

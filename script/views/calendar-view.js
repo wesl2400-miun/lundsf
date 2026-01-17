@@ -49,7 +49,7 @@ window.addEventListener('load', () => {
   const prev = () => {
     index--;
     if(index < 0)
-      window.location.href = PATH.BOOKING;
+      window.location.href = PATH.DESTINATION;
     else {
       time.pop();
       flow[index]();
