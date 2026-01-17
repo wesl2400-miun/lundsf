@@ -1,6 +1,6 @@
 import { getTag, loadRec } from '../utils.js';
 import { Trips } from "../data/trips.js";
-import { PATH, STORAGE, STR } from '../refs.js';
+import { PATH, STORAGE } from '../refs.js';
 import { Toolbar } from './toolbar.js';
 import { Trip } from '../data/trip.js';
 

@@ -1,4 +1,4 @@
-import { getTag, loadRec, remRec, saveRec } from '../utils.js';
+import { loadRec, saveRec } from '../utils.js';
 import { PATH, STORAGE } from '../refs.js';
 import { Toolbar } from './toolbar.js';
 
@@ -11,13 +11,11 @@ window.addEventListener('load', () => {
   const next = () => {
     const profile = loadRec(STORAGE.PROFILE_TEMP) || '';
     saveRec(STORAGE.PROFILE, profile);
-    remRec(STORAGE.PROFILE_TEMP);
     window.location.href = PATH.PROFILE;
   }
   
   // Gå tillbaka till mina sidor
   const prev = () => {
-    remRec(STORAGE.PROFILE_TEMP);
     window.location.href = PATH.PROFILE;
   }
     

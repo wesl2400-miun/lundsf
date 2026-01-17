@@ -1,6 +1,6 @@
 import { getTag } from '../utils.js';
 import { Trips } from "../data/trips.js";
-import { PATH, STR } from '../refs.js';
+import { PATH } from '../refs.js';
 import { Toolbar } from './toolbar.js';
 
 // Genererar dialogrutan för avbokningar av resor
@@ -27,7 +27,7 @@ window.addEventListener('load', () => {
   // Ta bort resan från reselistan och gå tillbaka till booking.html sidan
   const next = () => {
     trips.remTrip(trip);
-    window.location.href = PATH.BOOKING;
+    window.location.href = PATH.REM_DONE;
   }
   
   // Gå tillbaka till booking.html sidan 

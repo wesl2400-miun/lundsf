@@ -1,6 +1,5 @@
-import { getTag, loadRec, saveRec } from '../utils.js';
-import { Trips } from "../data/trips.js";
-import { PATH, STORAGE, STR } from '../refs.js';
+import { getTag, loadRec, saveRec, remRec } from '../utils.js';
+import { PATH, STORAGE } from '../refs.js';
 import { Toolbar } from './toolbar.js';
 
 // Uppdatera profil sidan baserat på den cachade profilen från sessionStorage
@@ -10,6 +9,9 @@ window.addEventListener('load', () => {
   const street = getTag('street');
   const code = getTag('code');
   const city = getTag('city');
+
+  // Rensa cache, för att undvika att flera versioner av samma data skapas när 'Tillbaka' knappen klickas
+  remRec(STORAGE.PROFILE_TEMP);
 
   const fields = [fName, lName, street, code, city];
 
