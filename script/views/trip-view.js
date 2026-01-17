@@ -1,34 +1,21 @@
-import { STR } from '../refs.js';
+import { getTag } from '../utils.js';
 import { TripCard } from './trip-card.js';
 
-// Genererar reslistan i form av kort
+// Genererar reselistan i form av kort
 export class TripView {
-  constructor(trips, main) {
-    this._trips = trips;
-    this.update(main);
-  }
+  constructor(vHolder, trips) {
+    this._vHolder = getTag(vHolder);
+    this._trips = trips.list;
 
-  // Uppdatera listan
-  update = (main) => {
-    main.innerHTML = '';
-    const list = this._trips.list;
-    if(list.length > 0) {
-      this._addInfo(STR.BOOKING_LIST, main);
-      for(let i = 0; i < list.length; i++) {
-        const tripCard = new TripCard(list[i], main);
+    this._vHolder.innerHTML = '';
+    const len = this._trips.length;
+    if(len > 0) {
+      for(let i = 0; i < len; i++) {
+        const tripCard = new TripCard(
+          this._vHolder, this._trips[i]);
         tripCard.addRemBtn(i);
-        tripCard.addModBtn(i, list, this._trips);
+        tripCard.addModBtn(i);
       }
-    } else {
-      this._addInfo(STR.BOOKING_EMPTY, main);
     }
-  }
-
-  // Informationskort
-  _addInfo = (text, main) => {
-    newH1('Boka färdtjänst', main);
-    const card = newSec(main);
-    newH2(STR.BOOKING_TRIPS, card);
-    newP(text, card);
   }
 }

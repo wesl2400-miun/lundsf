@@ -66,6 +66,7 @@ window.addEventListener('load', () => {
     }
   }
 
+  // Lyssna efter ändringar i skärmdimensioner
   const media = window.matchMedia('(max-width: 750px)');
   media.addEventListener('change', onResize);
 });

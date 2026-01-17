@@ -47,27 +47,27 @@ export const newDiv = (style, root) => {
   return newTag('div', style, null, root);
 }
 
-// Hämtar json data från sessionStorage och omvandlar den till objekt
+// Hämtar från data från sessionStorage
 export const loadRec = (key) => {
-  const json = sessionStorage.getItem(key);
-  return JSON.parse(json);
+  return sessionStorage.getItem(key);
 }
 
-// Omvandlar objekt till json och sparar det i sessionStorage
+// Sparar data i sessionStorage
 export const saveRec = (key, record) => {
-  const json = JSON.stringify(record);
-  return sessionStorage.setItem(key, json);
+  return sessionStorage.setItem(key, record);
 }
 
-// Tar bort data via referens
+// Tar bort data från sessionStorage via referens
 export const remRec = (key) => {
   sessionStorage.removeItem(key);
 }
 
+// Hitta en tagg med ett specifikt attrbut
 export const tagBy = (tagSpec) => {
   return document.querySelector(`${tagSpec}`);
 }
 
+// Hitta en tagglista med ett specifikt attribut
 export const tagsBy = (tagSpec) => {
   return document.querySelectorAll(`${tagSpec}`);
 }

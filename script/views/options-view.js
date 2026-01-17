@@ -1,32 +1,35 @@
-import { tagBy, tagsBy, getTag, loadRec, saveRec } from '../utils.js';
-import { PATH, STORAGE, STR } from '../refs.js';
+import { tagBy, tagsBy, remRec, saveRec } from '../utils.js';
+import { PATH, STORAGE } from '../refs.js';
 import { Toolbar } from './toolbar.js';
-import { Trip } from '../data/trip.js';
 
 // Hanterar logiken bakom options.html sidan
 window.addEventListener('load', () => {
-  const params = new URLSearchParams(window.location.search);
-  let data = params.get('data') || '';
+  
+  // Rensa cache, för att undvika att flera versioner av samma data skapas när 'Tillbaka' knappen klickas
+  remRec(STORAGE.OPTS);
+  let opts = '';
 
   const tbar = new Toolbar('act-btn', 'dec-btn');
 
+  // Spara de markerade svar i sessionSotrage
   const next = () => {
-    const reTrip = tagBy('input[name="repeat"]:checked');
-    data += reTrip? ` * ${reTrip.value}` : '';
-    data += ' '
+    const repeat = tagBy('input[name="repeat"]:checked');
+    opts += repeat?.value? 'Återkommande: ' + repeat.value + '. ' : '';
     const help = tagsBy('input[name="help"]:checked');
-    help.forEach(helper => {
-      const helpVal = helper.value;
-      data += helpVal? ` * ${helpVal}` : '';
-    } ); 
-    console.log(data);
+    opts += 'Övrigt: [';
+    help.forEach(helper => opts += helper?.value? ' * ' + helper.value : '');
+ 
+    opts += '] ';
+    saveRec(STORAGE.OPTS, opts);
     window.location.href = PATH.DETAILS;
   }
 
+  // Gå till calendar.html sidan och överför ett värde så att kalendervyn börjar från tid-vyn
   const prev = () => {
     window.location.href = `${PATH.CALENDAR}?back=true`;
   }
   
+  // Lyssna efter händelser när bekräftande eller avrbytande knapp trycks
   tbar.wireActBtn(next);
   tbar.wireDecBtn(prev);
 });

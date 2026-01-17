@@ -9,9 +9,11 @@ const trip = loadRec(STORAGE.CACHED_TRIP) || new Trip();
 window.addEventListener('load', () => {
   const tbar = new Toolbar('act-btn', 'dec-btn');
   
+  // Gå tillbaka till booking.html sidan
   const next = () => {
     window.location.href = PATH.BOOKING;
   }
   
+  // Lyssna efter händelser när bekräftande knapp trycks
   tbar.wireActBtn(next);
 });

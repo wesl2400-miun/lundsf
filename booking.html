@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="./styles/toolbar.css">
     <link rel="stylesheet" href="./styles/prim-btn.css">
     <link rel="stylesheet" href="./styles/trip-btn.css">
+    <link rel="stylesheet" href="./styles/trips.css">
 
     <!-- Laddar teckensnitt från Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,15 +64,16 @@
 
     <!-- Huvudinnehåll -->
     <main id="main">
+      <h1 class="headline">Boka färdtjänst</h1>
 
       <section class="card">
         <h2>Bokade resor</h2>
         <p>Nedan finns resor som du redan har bokat.</p>
       </section>
 
-      <div id="view-holder" aria-live="polite">
+      <section id="view-holder" class="trips" aria-live="polite">
         <!-- Reslistan genereras dynamiskt via bokking-view.js skript -->
-      </div>
+      </section>
       
       <div class="toolbar single-choice">
         <button class="prim-btn" id="act-btn">BOKA NY RESA</button>

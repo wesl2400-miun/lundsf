@@ -3,13 +3,13 @@ import { PATH, STORAGE } from '../refs.js';
 
 // Generar kort för resan
 export class TripCard {
-  constructor(trip, root) {
-    this._main = root;
-    this._root = newSec(this._main);
-    const { name, from, to, time, repeat, help } = trip;
-    newH2(`${to}`, this._root);
-    newH3(`${time}`, this._root);
-    newP(`${name}, ${from}, ${repeat} ${help}`, this._root);
+  constructor(vHolder, trip) {
+    this._root = newSec(vHolder);
+    const { dest, calend, opts, details } = trip;
+    newH2(dest, this._root);
+    newH3(calend, this._root);
+    newP(details, this._root);
+    newP(opts, this._root);
     this._btns = newDiv('trip-btns', this._root);
   }
 
@@ -25,7 +25,7 @@ export class TripCard {
   addModBtn = (index) => {
     const modBtn = newBtn('trip-btn', 'Ändra', this._btns);
     modBtn.addEventListener('click', () => {
-      saveRec(STORAGE.CURRENT_TRIP, index);
+      saveRec(STORAGE.TRIP_INDEX, index);
       window.location.href = PATH.DESTINATION;
     });
   }
