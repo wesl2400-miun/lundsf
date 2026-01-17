@@ -34,7 +34,7 @@ window.addEventListener('load', () => {
   
   // Gå tillbaka till booking.html sidan
   const prev = () => {
-    window.location.href = PATH.BOOKING;
+    window.location.href = PATH.DECLINE;
   }
   
   // Lyssna efter händelser när bekräftande eller avrbytande knapp trycks

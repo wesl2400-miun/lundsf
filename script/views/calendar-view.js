@@ -59,7 +59,7 @@ window.addEventListener('load', () => {
   const prev = () => {
     index--;
     if(index < 0)
-      window.location.href = PATH.DESTINATION;
+      window.location.href = PATH.DETAILS;
     else {
       time.pop();
       flow[index]();

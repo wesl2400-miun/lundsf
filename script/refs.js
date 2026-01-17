@@ -29,7 +29,8 @@ export const PATH = Object.freeze({
   SUCCESS: './success.html',
   CHANGE: './change.html',
   PROFILE: './profile.html',
-  REM_DONE: './remove-done.html'
+  REM_DONE: './remove-done.html',
+  DECLINE: './decline.html'
 });
 
 // Refererar till visa texter som är synliga som kort och knappar

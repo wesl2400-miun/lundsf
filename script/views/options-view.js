@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
  
     opts += '] ';
     saveRec(STORAGE.OPTS, opts);
-    window.location.href = PATH.DETAILS;
+    window.location.href = PATH.CONFIRMATION;
   }
 
   // Gå till calendar.html sidan och överför ett värde så att kalendervyn börjar från tid-vyn

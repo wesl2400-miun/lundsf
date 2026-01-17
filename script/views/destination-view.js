@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
     dest += street?.value? street.value + ', ' : '';
     dest += code?.value? code.value : '';
     saveRec(STORAGE.DESTINATION, dest);
-    window.location.href = PATH.CALENDAR;
+    window.location.href = PATH.DETAILS;
   }
   
   // Gå tillbaka till booking.html

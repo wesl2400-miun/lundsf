@@ -35,12 +35,12 @@ window.addEventListener('load', () => {
     details += code?.value? code.value + ', ' : '';
     details += city?.value? city.value : '';
     saveRec(STORAGE.DETAILS, details);
-    window.location.href = PATH.CONFIRMATION;
+    window.location.href = PATH.CALENDAR;
   }
   
   // Gå till options.html sidan när 'Tillbaka' knappen trycks
   const prev = () => {
-    window.location.href = PATH.OPTIONS;
+    window.location.href = PATH.DESTINATION;
   }
   
   // Lyssna efter händelser när bekräftande eller avrbytande knapp trycks
